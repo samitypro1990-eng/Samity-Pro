@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আমার সমিতি</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Anek+Bangla:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--sb:#14301F;--sb-h:#1d4029;--sb-a:#265534;--sb-b:#24462f;--sb-t:#a9c1b0;--sb-ta:#fff;--bg:#E8ECE3;--card:#fff;--tp:#1a2236;--ts:#5a6478;--tm:#8e99a8;--bd:#dfe3ea;--grn:#0fa968;--grn-l:#e6f9f0;--grn-d:#088a54;--blu:#2e7cf6;--blu-l:#e8f0fe;--blu-d:#1a62d4;--org:#f59e0b;--org-l:#fef8e8;--pur:#7c3aed;--pur-l:#f3eeff;--red:#ef4444;--red-l:#fef0f0;--teal:#0d9488;--teal-l:#e6f9f7;--ind:#4f46e5;--ind-l:#eef2ff;--rose:#e11d48;--rose-l:#fff1f2;--amb:#d97706;--amb-l:#fffbeb}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Hind Siliguri',sans-serif;background:var(--bg);color:var(--tp);min-height:100vh}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#c5c9d4;border-radius:3px}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:250px;background:var(--sb);z-index:100;display:flex;flex-direction:column;transition:transform .3s;border-right:1px solid var(--sb-b)}.sb-head{padding:18px 16px;border-bottom:1px solid var(--sb-b);display:flex;align-items:center;gap:10px}.sb-logo{width:40px;height:40px;background:linear-gradient(135deg,var(--grn),var(--grn-d));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;font-family:'Space Grotesk',sans-serif;flex-shrink:0}.sb-brand{font-size:15px;font-weight:700;color:#fff;line-height:1.2}.sb-sub{font-size:10px;color:var(--sb-t)}.sb-nav{flex:1;padding:12px 8px;overflow-y:auto}.nav-lbl{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;color:#7fa08a;padding:12px 12px 5px;font-weight:700}.nav-i{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:7px;color:var(--sb-t);cursor:pointer;transition:all .18s;margin-bottom:1px;font-size:13.5px;font-weight:500;position:relative}.nav-i:hover{background:var(--sb-h);color:#c5d4ec}.nav-i.act{background:var(--sb-a);color:var(--sb-ta);font-weight:600}.nav-i.act::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:55%;background:#F2B705;border-radius:0 3px 3px 0}.nav-i i{width:18px;text-align:center;font-size:13px}.sb-foot{padding:12px;border-top:1px solid var(--sb-b)}.sb-user{display:flex;align-items:center;gap:9px;padding:8px;background:var(--sb-h);border-radius:7px}.sb-av{width:32px;height:32px;border-radius:7px;background:linear-gradient(135deg,var(--grn),var(--grn-d));display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0}.sb-nm{font-size:11.5px;font-weight:600;color:#fff}.sb-rl{font-size:9.5px;color:var(--sb-t)}.main{margin-left:250px;min-height:100vh}.topbar{background:var(--card);border-bottom:1px solid var(--bd);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}.tb-l{display:flex;align-items:center;gap:12px}.hamb{display:none;background:none;border:none;color:var(--ts);font-size:18px;cursor:pointer}.tb-title{font-size:17px;font-weight:700}.tb-r{display:flex;align-items:center;gap:14px}.dt-box{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ts);background:var(--bg);padding:5px 12px;border-radius:5px}.dt-box i{color:var(--blu);font-size:12px}.dt-d{font-weight:600}.dt-t{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--blu)}.dt-s{color:var(--bd)}.tb-btn{background:none;border:1px solid var(--bd);color:var(--ts);width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;font-size:13px;position:relative}.tb-btn:hover{background:var(--bg);color:var(--tp)}.nd{position:absolute;top:4px;right:4px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--card)}.sync-btn{background:none;border:1px solid var(--bd);color:var(--ts);height:34px;padding:0 10px;border-radius:6px;display:flex;align-items:center;gap:5px;cursor:pointer;transition:all .18s;font-size:12px;font-family:'Hind Siliguri',sans-serif}.sync-btn:hover{background:var(--bg);color:var(--tp)}.sync-btn.syncing i{animation:spin 1s linear infinite}.sync-btn.synced{color:var(--grn);border-color:#b8e8d4}.sync-btn.error{color:var(--red);border-color:#fdd}@keyframes spin{to{transform:rotate(360deg)}}.lo-btn{display:flex;align-items:center;gap:6px;background:var(--red-l);border:1px solid #fdd;color:var(--red);padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;font-family:'Hind Siliguri',sans-serif}.lo-btn:hover{background:#fde2e2}.page{display:none;padding:20px 24px}.page.act{display:block}.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}.m-card{border-radius:10px;border:1px solid var(--bd);overflow:hidden;transition:box-shadow .25s,transform .25s}.m-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-1px)}.mc-top{padding:16px 18px 12px;display:flex;align-items:flex-start;justify-content:space-between}.mc-info{flex:1}.mc-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}.mc-val{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;line-height:1.1}.mc-sub{font-size:11px;color:var(--tm);margin-top:3px}.mc-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#fff}.mc-bot{padding:10px 18px;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}.mc-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .18s;font-family:'Hind Siliguri',sans-serif;color:#fff}.mc-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.card-green{background:#0a8c56;color:#fff}.card-green .mc-lbl{color:rgba(255,255,255,.75)}.card-green .mc-sub{color:rgba(255,255,255,.55)}.card-green .mc-val{color:#fff}.card-green .mc-ic{background:rgba(255,255,255,.18)}.card-green .mc-ic i{color:#fff}.card-green .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-blue{background:#1a5fe0;color:#fff}.card-blue .mc-lbl{color:rgba(255,255,255,.75)}.card-blue .mc-sub{color:rgba(255,255,255,.55)}.card-blue .mc-val{color:#fff}.card-blue .mc-ic{background:rgba(255,255,255,.18)}.card-blue .mc-ic i{color:#fff}.card-blue .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-orange{background:#d97706;color:#fff}.card-orange .mc-lbl{color:rgba(255,255,255,.8)}.card-orange .mc-sub{color:rgba(255,255,255,.6)}.card-orange .mc-val{color:#fff}.card-orange .mc-ic{background:rgba(255,255,255,.18)}.card-orange .mc-ic i{color:#fff}.card-orange .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-purple{background:#6d28d9;color:#fff}.card-purple .mc-lbl{color:rgba(255,255,255,.75)}.card-purple .mc-sub{color:rgba(255,255,255,.55)}.card-purple .mc-val{color:#fff}.card-purple .mc-ic{background:rgba(255,255,255,.18)}.card-purple .mc-ic i{color:#fff}.card-purple .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-teal{background:#0a7e74;color:#fff}.card-teal .mc-lbl{color:rgba(255,255,255,.75)}.card-teal .mc-sub{color:rgba(255,255,255,.55)}.card-teal .mc-val{color:#fff}.card-teal .mc-ic{background:rgba(255,255,255,.18)}.card-teal .mc-ic i{color:#fff}
+.card-indigo{background:#3f38c7;color:#fff}.card-indigo .mc-lbl{color:rgba(255,255,255,.75)}.card-indigo .mc-sub{color:rgba(255,255,255,.55)}.card-indigo .mc-val{color:#fff}.card-indigo .mc-ic{background:rgba(255,255,255,.18)}.card-indigo .mc-ic i{color:#fff}
+.card-rose{background:#be123c;color:#fff}.card-rose .mc-lbl{color:rgba(255,255,255,.8)}.card-rose .mc-sub{color:rgba(255,255,255,.6)}.card-rose .mc-val{color:#fff}.card-rose .mc-ic{background:rgba(255,255,255,.18)}.card-rose .mc-ic i{color:#fff}.card-rose .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-amber{background:#b45309;color:#fff}.card-amber .mc-lbl{color:rgba(255,255,255,.8)}.card-amber .mc-sub{color:rgba(255,255,255,.6)}.card-amber .mc-val{color:#fff}.card-amber .mc-ic{background:rgba(255,255,255,.18)}.card-amber .mc-ic i{color:#fff}
+.card-cyan{background:#007c8a;color:#fff}.card-cyan .mc-lbl{color:rgba(255,255,255,.8)}.card-cyan .mc-sub{color:rgba(255,255,255,.6)}.card-cyan .mc-val{color:#fff}.card-cyan .mc-ic{background:rgba(255,255,255,.18)}.card-cyan .mc-ic i{color:#fff}.card-cyan .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.card-lime{background:#3d6b1e;color:#fff}.card-lime .mc-lbl{color:rgba(255,255,255,.8)}.card-lime .mc-sub{color:rgba(255,255,255,.6)}.card-lime .mc-val{color:#fff}.card-lime .mc-ic{background:rgba(255,255,255,.18)}.card-lime .mc-ic i{color:#fff}.card-lime .mc-btn{background:rgba(255,255,255,.2);color:#fff}
+.mc-trend{font-size:10.5px;font-weight:600;display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px}.tr-up{background:var(--grn-l);color:var(--grn)}.tr-dn{background:var(--red-l);color:var(--red)}.panel{background:var(--card);border-radius:10px;border:1px solid var(--bd);overflow:hidden;margin-top:14px}.p-head{padding:14px 18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}.p-head h3{font-size:14px;font-weight:700;display:flex;align-items:center;gap:7px}.p-head h3 i{color:var(--blu);font-size:13px}.p-body{padding:14px 18px}.srch{width:100%;background:var(--card);border:1px solid var(--bd);border-radius:7px;padding:8px 12px 8px 34px;font-size:13px;color:var(--tp);font-family:'Hind Siliguri',sans-serif;outline:none;transition:border-color .18s}.srch:focus{border-color:var(--blu);box-shadow:0 0 0 3px var(--blu-l)}.srch-wrap{position:relative;margin-bottom:14px}.srch-wrap i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--tm);font-size:13px}table{width:100%;border-collapse:collapse}th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--tm);font-weight:600;padding:0 0 8px;border-bottom:1px solid var(--bd);white-space:nowrap}td{padding:9px 0;font-size:12.5px;color:var(--ts);border-bottom:1px solid var(--bd);vertical-align:middle}tr:last-child td{border-bottom:none}.t-name{color:var(--tp);font-weight:600;cursor:pointer}.t-name:hover{color:var(--blu)}.t-num{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--tp)}.t-click{cursor:pointer;color:var(--blu);font-weight:500}.t-click:hover{text-decoration:underline}.ib{background:none;border:none;cursor:pointer;font-size:14px;padding:3px 5px;border-radius:4px;transition:all .15s}.ib:hover{background:var(--bg)}.ib.edit{color:var(--blu)}.ib.save{color:var(--grn)}.ib.cancel{color:var(--red)}.ib.del{color:var(--red)}.s-pill{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;display:inline-block}.s-dep{background:var(--grn-l);color:var(--grn)}.s-ch{background:var(--blu-l);color:var(--blu)}.s-pay{background:var(--org-l);color:var(--org)}.ed-inp{background:var(--bg);border:1px solid var(--blu);border-radius:4px;padding:3px 6px;font-size:12px;color:var(--tp);font-family:'Hind Siliguri',sans-serif;width:100%;outline:none}.ed-inp.num{text-align:right;width:70px}.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(3px)}.modal-ov.show{display:flex}.modal-ov.sub{z-index:310}.modal-ov.sub2{z-index:320}.modal{background:var(--card);border-radius:12px;width:620px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 16px 48px rgba(0,0,0,.2);animation:mIn .22s ease}.modal.sm{width:440px}@keyframes mIn{from{opacity:0;transform:scale(.97) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}.m-head{padding:16px 20px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--card);z-index:1;border-radius:12px 12px 0 0}.m-head h3{font-size:15px;font-weight:700}.m-x{background:none;border:none;color:var(--tm);font-size:16px;cursor:pointer;padding:3px}.m-x:hover{color:var(--tp)}.m-body{padding:20px}.m-foot{padding:12px 20px;border-top:1px solid var(--bd);display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:0;background:var(--card);border-radius:0 0 12px 12px}.fg{margin-bottom:14px}.fg label{display:block;font-size:11.5px;font-weight:600;color:var(--ts);margin-bottom:4px}.fg input,.fg select{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:8px 11px;color:var(--tp);font-size:13px;font-family:'Hind Siliguri',sans-serif;outline:none;transition:border-color .18s}.fg input:focus,.fg select:focus{border-color:var(--blu);box-shadow:0 0 0 3px var(--blu-l)}.fg input::placeholder{color:var(--tm)}.mbtn{padding:7px 16px;border-radius:6px;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .18s;font-family:'Hind Siliguri',sans-serif;border:none}.mbtn-g{background:none;border:1px solid var(--bd);color:var(--ts)}.mbtn-g:hover{background:var(--bg)}.mbtn-b{background:var(--blu);color:#fff}.mbtn-b:hover{background:var(--blu-d)}.mbtn-r{background:var(--red);color:#fff}.mbtn-r:hover{background:#dc2626}.mbtn-gr{background:var(--grn);color:#fff}.mbtn-gr:hover{background:var(--grn-d)}.calc-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-top:1px solid var(--bd)}.calc-row.due{color:var(--red);font-weight:700}.prod-dropdown{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--bd);border-radius:0 0 6px 6px;max-height:150px;overflow-y:auto;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.1)}.prod-dropdown div{padding:7px 11px;font-size:12.5px;cursor:pointer;border-bottom:1px solid var(--bd)}.prod-dropdown div:last-child{border-bottom:none}.prod-dropdown div:hover{background:var(--blu-l)}.toast-box{position:fixed;top:66px;right:20px;z-index:400;display:flex;flex-direction:column;gap:7px}.toast{background:var(--card);border:1px solid var(--bd);border-radius:7px;padding:10px 16px;display:flex;align-items:center;gap:9px;font-size:12.5px;box-shadow:0 6px 20px rgba(0,0,0,.1);animation:tIn .3s ease;min-width:240px}.toast.out{animation:tOut .25s ease forwards}.t-ic{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}.t-ic.ok{background:var(--grn-l);color:var(--grn)}.t-ic.info{background:var(--blu-l);color:var(--blu)}.t-ic.warn{background:var(--org-l);color:var(--org)}.t-ic.err{background:var(--red-l);color:var(--red)}@keyframes tIn{from{opacity:0;transform:translateX(25px)}to{opacity:1;transform:translateX(0)}}@keyframes tOut{to{opacity:0;transform:translateX(25px)}}.cust-info-bar{display:flex;flex-wrap:wrap;gap:16px;padding:12px 0;border-bottom:1px solid var(--bd);margin-bottom:14px;font-size:12.5px}.cust-info-bar span{color:var(--ts)}.cust-info-bar strong{color:var(--tp)}.cust-due-big{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--red)}.dlr-head{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--bd);margin-bottom:14px;flex-wrap:wrap;gap:8px}.dlr-name{font-size:18px;font-weight:700}.dlr-due{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--red)}.empty-msg{text-align:center;color:var(--tm);padding:20px}.more-prod-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--blu);background:var(--blu-l);font-size:12px;font-weight:600;cursor:pointer;transition:all .18s;font-family:'Hind Siliguri',sans-serif;color:var(--blu);margin-top:8px}.more-prod-btn:hover{background:var(--blu);color:#fff}.cust-dd{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--bd);border-radius:0 0 6px 6px;max-height:180px;overflow-y:auto;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.1)}.cust-dd div{padding:9px 12px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}.cust-dd div:last-child{border-bottom:none}.cust-dd div:hover{background:var(--blu-l)}.cust-dd .cust-due{font-family:'Space Grotesk',sans-serif;font-size:11px;color:var(--tm)}.prod-list-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--bd);font-size:13px}.prod-list-item:last-child{border-bottom:none}.prod-list-item:hover{background:var(--blu-l)}.pl-add{background:var(--blu);color:#fff;border:none;padding:4px 12px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Hind Siliguri',sans-serif}.pl-add:hover{background:var(--blu-d)}.pl-added{background:var(--grn-l);color:var(--grn);border:1px solid #b8e8d4;padding:4px 12px;border-radius:5px;font-size:11px;font-weight:600}.dash-popup-opt{flex:1;padding:20px;border-radius:10px;border:1px solid var(--bd);cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.dash-popup-opt:hover{border-color:var(--blu);box-shadow:0 2px 8px rgba(0,0,0,.06)}.dash-popup-opt i{font-size:24px}.dash-popup-opt span{font-size:14px;font-weight:600}.low-stock-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--bd);font-size:13px}.low-stock-item:last-child{border-bottom:none}.low-stock-name{color:var(--tp);font-weight:600}.low-stock-val{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--red);background:var(--red-l);padding:3px 8px;border-radius:4px}.stock-warn{background:var(--org-l);border:1px solid var(--org);color:var(--org);padding:6px 12px;border-radius:6px;font-size:12px;margin-bottom:10px;display:none}.sum-stat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.sum-stat-item{background:var(--bg);border-radius:8px;padding:14px;text-align:center}.sum-stat-item .ss-val{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700}.sum-stat-item .ss-lbl{font-size:11px;color:var(--tm);margin-top:2px}.action-btns{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.action-btns button{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .18s;font-family:'Hind Siliguri',sans-serif;color:#fff}.action-btns button:hover{filter:brightness(1.08)}@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.hamb{display:flex}.cards-grid{grid-template-columns:1fr}.dt-box{display:none}.lo-btn span{display:none}.lo-btn{padding:5px 8px}.sum-stat{grid-template-columns:1fr}.sync-btn span{display:none}.sync-btn{padding:0 8px}.action-btns{flex-direction:column}.action-btns button{width:100%;justify-content:center}}
+
+/* ═══ ড্যাশবোর্ড: হিসাবের খাতা ═══ */
+.dx{--ink:#14301F;--rule:#cdd5c6;--paper:#FBFCF9;--c-red:#D6322B;--c-yel:#F2B705;--c-blu:#1F5FBF;--c-grn:#1E9A4B;max-width:1040px;margin:0 auto;color:var(--ink)}
+.dx-sheet{position:relative;background:var(--paper);border:1px solid var(--rule);border-radius:3px;box-shadow:0 6px 0 -2px #EEF2E9,0 7px 0 -2px var(--rule);overflow:hidden}
+.dx-sheet::before{content:'';position:absolute;top:7px;bottom:0;left:40px;width:5px;border-left:1px solid rgba(214,50,43,.55);border-right:1px solid rgba(214,50,43,.55);pointer-events:none}
+.dx-bands{display:grid;grid-template-columns:repeat(4,1fr);height:7px}
+.dx-bands i{display:block;transform-origin:left center;animation:dxWipe .8s cubic-bezier(.2,.7,.2,1) both}
+.dx-bands i:nth-child(1){background:var(--c-red)}
+.dx-bands i:nth-child(2){background:var(--c-yel);animation-delay:.12s}
+.dx-bands i:nth-child(3){background:var(--c-blu);animation-delay:.24s}
+.dx-bands i:nth-child(4){background:var(--c-grn);animation-delay:.36s}
+@keyframes dxWipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.dx-in{padding:14px 22px 12px 62px}
+.dx-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.dx-date{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-weight:800;font-size:clamp(22px,3vw,30px);line-height:1.15}
+.dx-year{font-size:13.5px;color:#5d6f61}
+.dx-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 36px;align-items:start}
+.dx-col h3{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-size:15.5px;font-weight:700;margin:0 0 2px;padding-bottom:3px;border-bottom:2px solid var(--ink)}
+.dx-line{display:flex;align-items:baseline;gap:8px;padding:4px 0;font-size:13px;color:#34463a}
+button.dx-line{width:100%;background:none;border:0;text-align:left;font-family:inherit;cursor:pointer}
+button.dx-line:hover .dx-l{text-decoration:underline;text-decoration-color:var(--c-blu);text-underline-offset:3px}
+.dx-fill{flex:1;min-width:12px;border-bottom:2px dotted #b4bfac;transform:translateY(-3px)}
+.dx-v{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap}
+.dx-line.tot{margin-top:3px;border-top:1.5px solid var(--ink);font-weight:700;color:var(--ink)}
+.dx-line.tot .dx-fill{border-color:transparent}
+.dx-bottom{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:3px double var(--ink);margin-top:10px;padding:8px 0 0}
+.dx-bottom span{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-size:15px;font-weight:700}
+.dx-bottom strong{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-size:clamp(20px,2.6vw,26px);font-weight:800;line-height:1.1}
+.dx-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding-top:10px;border-top:1px dashed #bcc7b5}
+.dx-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:3px;border:1.5px solid var(--ink);background:var(--ink);color:#fff;font-family:'Hind Siliguri',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
+.dx-btn:hover{background:#265534;border-color:#265534}
+.dx-btn:focus-visible,.dx-tag:focus-visible,button.dx-line:focus-visible{outline:3px solid var(--c-blu);outline-offset:2px}
+.dx-tags{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+.dx-tag{position:relative;overflow:hidden;display:block;width:100%;text-align:left;background:var(--c);border:0;border-radius:6px;padding:20px 22px;min-height:118px;cursor:pointer;font-family:inherit;color:#fff;transition:filter .15s}
+.dx-tag:hover{filter:brightness(1.08)}
+.dx-tag-ic{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:54px;opacity:.22;pointer-events:none}
+.dx-tag.red{--c:#1D4E9E}.dx-tag.amb{--c:#0F6E66}
+.dx-tag span{display:block}
+.dx-tag-t{font-size:14px;font-weight:600;opacity:.92}
+.dx-tag-v{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-weight:800;font-size:32px;line-height:1.2;margin-top:4px}
+.dx-tag-s{font-size:12.5px;opacity:.85;margin-top:2px}
+@media(max-width:720px){.dx-in{padding:18px 16px 18px 46px}.dx-sheet::before{left:30px}.dx-cols{grid-template-columns:1fr;gap:20px}.dx-tags{grid-template-columns:1fr}.dx-acts{display:grid;grid-template-columns:1fr 1fr}.dx-btn{justify-content:center}.dx-acts .dx-btn:last-child{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.dx-bands i{animation:none}}
+/* পেছনের ছবি */
+/* ছবির ফ্রেম */
+.dx-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:18px;align-items:stretch}
+.dx-main{min-width:0}
+.dx-photo{margin:0;border-radius:6px;border:1px solid var(--rule);background:linear-gradient(135deg,#dfe7d8,#a9bfa5) 42% 30%/cover no-repeat;min-height:320px}
+@media(max-width:1150px){.dx-grid{grid-template-columns:1fr}.dx-photo{order:-1;min-height:0;height:clamp(170px,36vw,260px);background-position:center 25%}}
+
+/* ═══ লগইন ও ব্যাকআপ বাটন ═══ */
+#loginOv{display:none;position:fixed;inset:0;z-index:500;background:#E8ECE3;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.lg-box{width:400px;max-width:100%;background:#FBFCF9;border:1px solid #cdd5c6;border-radius:3px;box-shadow:0 6px 0 -2px #EEF2E9,0 7px 0 -2px #cdd5c6;overflow:hidden}
+.lg-bands{display:grid;grid-template-columns:repeat(4,1fr);height:7px}
+.lg-bands i:nth-child(1){background:#D6322B}.lg-bands i:nth-child(2){background:#F2B705}.lg-bands i:nth-child(3){background:#1F5FBF}.lg-bands i:nth-child(4){background:#1E9A4B}
+.lg-in{padding:22px 24px 24px}
+.lg-t{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-size:28px;font-weight:800;color:#14301F;line-height:1.2}
+.lg-s{font-size:13.5px;color:#5d6f61;margin:2px 0 18px}
+.lg-btn{width:100%;padding:11px 16px;border:0;border-radius:3px;background:#14301F;color:#fff;font-family:'Hind Siliguri',sans-serif;font-size:15px;font-weight:600;cursor:pointer}
+.lg-btn:hover{background:#265534}.lg-btn:disabled{opacity:.6;cursor:wait}
+.lg-btn:focus-visible{outline:3px solid #1F5FBF;outline-offset:2px}
+.lg-err{color:#C62F2A;font-size:13px;min-height:20px;margin-bottom:8px}
+.lg-hint{font-size:12px;color:#6b7c6f;margin-top:4px}
+.lg-pw{position:relative}.lg-pw input{padding-right:72px}
+.lg-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:#1F5FBF;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:600;padding:6px 8px;cursor:pointer;border-radius:3px}
+.lg-eye:hover{background:#E8ECE3}.lg-eye:focus-visible{outline:3px solid #1F5FBF}
+.sb-tools{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.sb-tools button{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--sb-b);color:var(--sb-t);padding:7px 10px;border-radius:6px;font-family:'Hind Siliguri',sans-serif;font-size:12px;cursor:pointer;text-align:left}
+.sb-tools button:hover{background:var(--sb-h);color:#fff}
+
+/* ═══ সেটিং পাতা ═══ */
+.st{max-width:1040px;margin:0 auto;color:#14301F}
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.st-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.st-card{background:#FBFCF9;border:1px solid #cdd5c6;border-top:4px solid var(--btn,#14301F);border-radius:3px;padding:14px 16px 16px}
+.st-card h3{font-family:'Anek Bangla','Hind Siliguri',sans-serif;font-size:17px;font-weight:700;margin:0 0 4px}
+.st-note{font-size:12.5px;color:#5d6f61;margin:0 0 12px;line-height:1.5}
+.st-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.st-lbl{font-size:13.5px;font-weight:600;min-width:104px}
+.st-sw{display:flex;gap:8px;flex-wrap:wrap}
+.st-sw button{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px #9fae96;cursor:pointer;padding:0}
+.st-sw button.on{box-shadow:0 0 0 3px #14301F}
+.st-sw button:focus-visible,.st-seg button:focus-visible,.st-btn:focus-visible,.st input[type=color]:focus-visible{outline:3px solid #1F5FBF;outline-offset:2px}
+.st input[type=color]{width:42px;height:32px;padding:0;border:1px solid #cdd5c6;border-radius:4px;background:none;cursor:pointer}
+.st-seg{display:inline-flex;border:1.5px solid var(--btn,#14301F);border-radius:4px;overflow:hidden}
+.st-seg button{border:0;background:#fff;padding:6px 16px;font-family:'Hind Siliguri',sans-serif;font-size:13px;cursor:pointer;color:#14301F}
+.st-seg button.on{background:var(--btn,#14301F);color:var(--btn-t,#fff)}
+.st-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:3px;border:1.5px solid #14301F;background:#fff;color:#14301F;font-family:'Hind Siliguri',sans-serif;font-size:13.5px;font-weight:600;cursor:pointer}
+.st-btn:hover{background:#E8ECE3}
+.st-btn.dg{border-color:#C62F2A;color:#C62F2A}.st-btn.dg:hover{background:#FBE4E2}
+.st-btns{display:flex;gap:8px;flex-wrap:wrap}
+.st-msg{font-size:13px;min-height:19px;margin:2px 0 8px}.st-msg.ok{color:#1E7A3C}.st-msg.err{color:#C62F2A}
+.st .fg{margin-bottom:12px}
+.st-pwwrap{position:relative}.st-pwwrap input{padding-right:72px}
+.st-prev{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:#E8ECE3;border-radius:4px;margin-bottom:4px}
+@media(max-width:860px){.st-grid{grid-template-columns:1fr}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#7B45B8"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SomitiPro"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><style id="dx3d">
+html{background:#5E3294}
+body{background:linear-gradient(180deg,#9B6AD6 0%,#7B45B8 55%,#5E3294 100%) fixed}
+.topbar{background:#7B45B8!important;border-bottom:0;color:#fff;box-shadow:0 3px 8px rgba(0,0,0,.2)}.topbar .tb-title,.topbar h1,.topbar #pageTitle{color:#fff}
+.dx-acts{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px;margin:0 0 20px;padding:0;border:0}
+.dx-acts .dx-btn:last-child{grid-column:1/-1}
+.dx-btn{--c:var(--btn,#4A2410);position:relative;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:14px 12px;color:var(--btn-t,#fff);font-family:'Hind Siliguri',sans-serif;font-size:15px;font-weight:600;cursor:pointer;
+ background:var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 76%,#fff),var(--c));
+ box-shadow:0 6px 0 color-mix(in srgb,var(--c) 45%,#000),0 10px 14px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.3);text-shadow:0 1px 1px rgba(0,0,0,.3);transition:transform .08s,box-shadow .08s}
+.dx-btn:hover{background:linear-gradient(180deg,color-mix(in srgb,var(--c) 70%,#fff),color-mix(in srgb,var(--c) 92%,#fff));border:0}
+.dx-btn:active,.dx-tag:active{transform:translateY(5px);box-shadow:0 1px 0 color-mix(in srgb,var(--c) 45%,#000),0 3px 5px rgba(0,0,0,.3),inset 0 2px 0 rgba(255,255,255,.25)}
+.dx-tags{grid-template-columns:1fr 1fr;gap:14px;margin:0 0 24px}
+.dx-tag{border-radius:16px;padding:16px 14px 18px;min-height:108px;background:var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 78%,#fff),var(--c));
+ box-shadow:0 6px 0 color-mix(in srgb,var(--c) 50%,#000),0 10px 14px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.3);transition:transform .08s,box-shadow .08s}
+.dx-tag:hover{filter:none}
+.dx-hbw{position:relative}
+.dx-hbands{position:absolute;top:0;left:0;right:0;height:6px;display:grid;grid-template-columns:repeat(4,1fr);border-radius:14px 14px 0 0;overflow:hidden;z-index:1;pointer-events:none}
+.dx-hbands i:nth-child(1){background:#D6322B}.dx-hbands i:nth-child(2){background:#F2B705}.dx-hbands i:nth-child(3){background:#1F5FBF}.dx-hbands i:nth-child(4){background:#1E9A4B}
+.dx-hb{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-radius:14px 14px 0 0;padding:20px 16px 14px;cursor:pointer;color:#3A1A00;font:700 16px 'Hind Siliguri',sans-serif;
+ background:linear-gradient(180deg,#FFF9E6,#F3E4B8);box-shadow:0 6px 0 #A8681A,0 10px 14px rgba(0,0,0,.25),inset 0 2px 0 #fff;position:relative;z-index:0;margin-bottom:6px}
+.dx-hb i.fa-book-open{margin-right:8px;color:#A8681A}
+.dx-hb.closed{border-radius:14px;margin-bottom:8px}
+.dx-chev{width:28px;height:28px;border-radius:50%;background:#3A1A00;color:#fff;display:grid;place-items:center;font-size:12px;box-shadow:0 2px 0 #000;transition:transform .2s}
+.dx-hb.closed .dx-chev{transform:rotate(-90deg)}
+.dx-hb:active{transform:translateY(4px);box-shadow:0 2px 0 #A8681A,0 3px 5px rgba(0,0,0,.25),inset 0 2px 0 #fff}
+.dx-sheet{background:#FFFAEE;border:1px solid #EBC88F;border-top:0;border-radius:0 0 10px 10px;box-shadow:0 6px 0 -2px #F6DDB0,0 7px 0 -2px #EBC88F}
+.dx-sheet::before{top:0}
+.dx-sheet.closed{display:none}
+.dx-fill{border-bottom-color:#D3B27A}
+.dx-in{padding:14px 22px 14px 62px}
+@media(min-width:900px){.dx-acts{grid-template-columns:repeat(5,1fr)}.dx-acts .dx-btn:last-child{grid-column:auto}}
+@media(max-width:720px){.dx-tags{grid-template-columns:1fr 1fr}.dx-tag{padding:14px 12px 16px;min-height:100px}.dx-tag-v{font-size:22px}.dx-tag-ic{font-size:34px;right:10px}.dx-in{padding:14px 16px 14px 46px}.dx-acts{display:grid;grid-template-columns:1fr 1fr}.dx-acts .dx-btn:last-child{grid-column:1/-1}}
+</style>
+<style id="dxtile">
+.dx-acts{grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.dx-acts .dx-btn,.dx-acts .dx-btn:last-child{grid-column:auto}
+.dx-acts .dx-wide{grid-column:1/-1;min-height:84px;flex-direction:row;font-size:19px;background:linear-gradient(135deg,#0E7C3A,#1FA84F)!important}
+.dx-acts .dx-wide i{font-size:30px}
+.dx-acts .dx-btn{flex-direction:column;min-height:104px;gap:8px;border-radius:20px;font-size:16px;padding:14px 10px;box-shadow:0 5px 0 rgba(0,0,0,.28),0 10px 16px rgba(0,0,0,.25),inset 0 2px 0 rgba(255,255,255,.25)}
+.dx-acts .dx-btn i{font-size:30px;opacity:.95}
+.dx-acts .dx-btn:nth-child(2){background:linear-gradient(135deg,#5E8B1E,#97B83A)}
+.dx-acts .dx-btn:nth-child(3){background:linear-gradient(135deg,#7A2E1B,#B5532E)}
+.dx-acts .dx-btn:nth-child(4){background:linear-gradient(135deg,#1F5FBF,#4C93E0)}
+.dx-acts .dx-btn:nth-child(5){background:linear-gradient(135deg,#E0701A,#F5A04A)}
+@media(min-width:900px){.dx-acts{grid-template-columns:2fr 1fr 1fr 1fr 1fr}.dx-acts .dx-wide{grid-column:auto}}
+</style>
+<style id="hambfix">.hamb{color:#fff!important;font-size:26px!important;padding:6px 10px;text-shadow:0 1px 2px rgba(0,0,0,.35)}.topbar .sync-btn,.topbar .tb-r button{border-color:rgba(255,255,255,.7)}</style>
+<style id="smtcss">
+.al-i{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;margin-bottom:8px;border:1px solid var(--bd);background:var(--card)}
+.al-i.over{border-left:5px solid var(--red)}.al-i.soon{border-left:5px solid #E0A800}
+.al-t{font-size:12px;color:var(--tm);margin-top:2px}
+.ph-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.ph-slot{text-align:center}
+.ph-box{width:100%;aspect-ratio:1/1;border:2px dashed var(--bd);border-radius:12px;background:var(--bg);color:var(--tm);font-size:26px;display:grid;place-items:center;overflow:hidden;cursor:pointer;padding:0}
+.ph-box.has{border-style:solid}
+.ph-box img{width:100%;height:100%;object-fit:cover}
+.ph-l{display:block;font-size:11.5px;color:var(--ts);margin-top:4px}
+.ph-ld{font-size:11px;color:var(--tm)}
+.s-pill.chip-r{background:#fde4e4;color:#b42318}.s-pill.chip-o{background:#ffe9d1;color:#9a4a00}.s-pill.chip-y{background:#fff3cd;color:#8a6100}.s-pill.chip-g{background:#dff5e3;color:#1c6b34}
+.sec-h{font-weight:700;margin:16px 0 6px;font-size:13.5px}
+.mychips{display:flex;flex-wrap:wrap;gap:6px}
+#pinOv{display:none;position:fixed;inset:0;z-index:700;background:linear-gradient(180deg,#9B6AD6,#5E3294);align-items:center;justify-content:center;padding:16px}
+.pin-box{background:#fff;border-radius:16px;padding:28px 22px;width:100%;max-width:340px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.pin-box input{width:100%;font-size:26px;letter-spacing:8px;text-align:center;padding:10px;border:1px solid var(--bd);border-radius:10px;margin:14px 0 6px}
+.st-seg button.on{background:var(--btn);color:var(--btn-t)}
+@media print{body.prn>*:not(#subModal){display:none!important}body.prn #subModal{position:static!important;display:block!important;background:#fff!important;overflow:visible!important;opacity:1!important}body.prn #subModal .modal{box-shadow:none!important;max-width:none!important;width:100%!important;max-height:none!important;transform:none!important}body.prn .m-x,body.prn .m-foot{display:none!important}}
+</style>
+
+</head>
+<body>
+<aside class="sidebar" id="sidebar"><div class="sb-head"><div class="sb-logo">স</div><div><div class="sb-brand">আমার সমিতি</div><div class="sb-sub">সমিতি ব্যবস্থাপনা</div></div></div><nav class="sb-nav"><div class="nav-lbl">প্রধান মেনু</div><div class="nav-i act" data-p="dashboard" tabindex="0"><i class="fas fa-th-large"></i><span>ড্যাশবোর্ড</span></div><div class="nav-i" data-p="members" tabindex="0"><i class="fas fa-users"></i><span>সদস্য তালিকা</span></div><div class="nav-i" data-p="loans" tabindex="0"><i class="fas fa-file-invoice-dollar"></i><span>ঋণ তালিকা</span></div><div class="nav-i" data-p="expenses" tabindex="0"><i class="fas fa-receipt"></i><span>খরচ</span></div><div class="nav-lbl" style="margin-top:10px">রিপোর্ট</div><div class="nav-i" data-p="summary" tabindex="0"><i class="fas fa-calculator"></i><span>হিসাব সারাংশ</span></div><div class="nav-lbl" style="margin-top:10px">সিস্টেম</div><div class="nav-i" data-p="settings" tabindex="0"><i class="fas fa-gear"></i><span>সেটিং</span></div></nav><div class="sb-foot"><div class="sb-tools"><button type="button" onclick="dlBackup()"><i class="fas fa-download"></i> ব্যাকআপ নামান</button><button type="button" onclick="document.getElementById('rsFile').click()"><i class="fas fa-upload"></i> ব্যাকআপ ফেরান</button><input type="file" id="rsFile" accept=".json,application/json" style="display:none" onchange="rsBackup(this)"></div><div class="sb-user"><div class="sb-av">ব</div><div><div class="sb-nm">ব্যবহারকারী</div><div class="sb-rl">মালিক</div></div></div></div></aside>
+<main class="main"><header class="topbar"><div class="tb-l"><button class="hamb" id="hamb" aria-label="মেনু"><i class="fas fa-bars"></i></button><h1 class="tb-title" id="pageTitle">ড্যাশবোর্ড</h1></div><div class="tb-r"><button class="sync-btn synced" id="syncBtn" onclick="manualSync()"><i class="fas fa-cloud"></i><span>সিঙ্ক</span></button><div class="dt-box"><i class="far fa-calendar-alt"></i><span class="dt-d" id="dtDate"></span><span class="dt-s">|</span><span class="dt-t" id="dtTime"></span></div><button class="tb-btn" id="notifBtn" aria-label="নোটিফিকেশন"><i class="far fa-bell"></i><span class="nd"></span></button><button class="lo-btn" id="loBtn"><i class="fas fa-sign-out-alt"></i><span>লগআউট</span></button></div></header><div id="pgDashboard" class="page act"></div><div id="pgMembers" class="page"></div><div id="pgLoans" class="page"></div><div id="pgExpenses" class="page"></div><div id="pgSummary" class="page"></div><div id="pgSettings" class="page"></div></main>
+<div class="modal-ov" id="mainModal"><div class="modal" id="mainModalInner"></div></div>
+<div class="modal-ov sub" id="subModal"><div class="modal" id="subModalInner"></div></div>
+<div class="modal-ov sub2" id="sub2Modal"><div class="modal sm" id="sub2ModalInner"></div></div>
+<div class="toast-box" id="toastBox"></div>
+<div id="loginOv"><div class="lg-box"><div class="lg-bands" aria-hidden="true"><i></i><i></i><i></i><i></i></div><form class="lg-in" onsubmit="doLogin();return false"><h2 class="lg-t">আমার সমিতি</h2><p class="lg-s">হিসাব দেখতে প্রবেশ করুন</p><div class="fg"><label for="lgEm">আইডি</label><input id="lgEm" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="আপনার আইডি"></div><div class="fg"><label for="lgPw">পাসওয়ার্ড</label><div class="lg-pw"><input id="lgPw" name="password" type="password" autocomplete="current-password" placeholder="পাসওয়ার্ড"><button type="button" class="lg-eye" id="lgEye" onclick="togglePw()" aria-label="পাসওয়ার্ড দেখুন">দেখুন</button></div></div><div class="lg-err" id="lgErr" role="alert"></div><button class="lg-btn" id="lgBtn" type="submit">প্রবেশ করুন</button><button type="button" class="lg-forgot" onclick="forgotPw()" style="display:block;margin:12px auto 0;background:none;border:0;color:#1D4E9E;font:600 14px inherit;font-family:inherit;text-decoration:underline;cursor:pointer">পাসওয়ার্ড ভুলে গেছেন?</button><p class="lg-hint" style="margin-top:10px">এই ডিভাইসে একবার ঢুকলে ৩০ দিন আবার পাসওয়ার্ড লাগবে না। ইন্টারনেট না থাকলেও এই ডিভাইসে ঢোকা যাবে।</p></form></div></div>
+<div id="sbOv" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99"></div>
+<script>
+/* ═══════════════ ইউটিলিটি ═══════════════ */
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  ফায়ারবেসের কনফিগ: Firebase Console → Project settings →      ║
+   ║  Your apps → Web app → firebaseConfig থেকে কপি করে বসান        ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+var FB_CONFIG={apiKey:'AIzaSyC_k0q4t4md4jCHiGKeunNlTcZ-VRpMeSo',authDomain:'samity-pro-561da.firebaseapp.com',projectId:'samity-pro-561da',storageBucket:'samity-pro-561da.firebasestorage.app',messagingSenderId:'139276372536',appId:'1:139276372536:web:596677360690a66d2f34cd'};
+var ID_DOMAIN='hisab.app'; /* আইডির পেছনে এই নকল ঠিকানা বসে (অ্যাডমিন স্ক্রিপ্টেও একই রাখুন) */
+var SYNC_URL_DEFAULT='';
+var BN=['০','১','২','৩','৪','৫','৬','৭','৮','৯'],BNM={'০':'0','১':'1','২':'2','৩':'3','৪':'4','৫':'5','৬':'6','৭':'7','৮':'8','৯':'9'};
+var MONTHS=['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+function toBn(n){return String(n).replace(/[0-9]/g,function(d){return BN[+d]})}
+function toEn(s){return String(s).replace(/[০-৯]/g,function(d){return BNM[d]||d})}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function autoDate(){var d=new Date();return toBn(String(d.getDate()).padStart(2,'0'))+'/'+toBn(String(d.getMonth()+1).padStart(2,'0'))+'/'+toBn(d.getFullYear())}
+function autoDateFull(){var d=new Date();return toBn(d.getDate())+' '+MONTHS[d.getMonth()]+' '+toBn(d.getFullYear())+', '+['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'][d.getDay()]}
+function autoTime(){var h=new Date().getHours(),m=new Date().getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return toBn(String(h).padStart(2,'0'))+':'+toBn(String(m).padStart(2,'0'))+' '+ap}
+
+/* ═══════════════ ডাটাবেস ═══════════════ */
+var DEF={members:[],savings:[],loans:[],expenses:[],nxt:{}};
+
+var OLD_SYNC_URL='';
+var HAD_LOCAL=false;try{HAD_LOCAL=!!localStorage.getItem('smtDB')}catch(e){}
+function gid(i){return document.getElementById(i)}
+function lsGet(k){try{return localStorage.getItem(k)||''}catch(e){return''}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
+function srvUrl(){return lsGet('smtSrv')||SYNC_URL_DEFAULT}
+function getBase(){return Number(lsGet('smtBase'))||0}
+function normDB(d){if(!d.settings||typeof d.settings!=='object'||Array.isArray(d.settings))d.settings={};['members','savings','loans','expenses'].forEach(function(k){if(!Array.isArray(d[k]))d[k]=[]});if(!d.nxt||typeof d.nxt!=='object'||Array.isArray(d.nxt))d.nxt={};d.members.forEach(function(m){if(!m.status)m.status='active'});return d}
+function loadLocal(){try{var s=localStorage.getItem('smtDB');if(s)return normDB(JSON.parse(s))}catch(e){}return JSON.parse(JSON.stringify(DEF))}
+function saveLocal(){try{localStorage.setItem('smtDB',JSON.stringify(DB))}catch(e){}}
+function setSS(s){var b=document.getElementById('syncBtn');if(!b)return;b.className='sync-btn '+s;if(s==='syncing')b.innerHTML='<i class="fas fa-spinner"></i><span>সিঙ্ক</span>';else b.innerHTML='<i class="fas fa-cloud"></i><span>'+(s==='error'&&navigator.onLine===false?'অফলাইন':'সিঙ্ক')+'</span>'}
+function curPage(){var a=document.querySelector('.nav-i.act');return a?a.dataset.p:'dashboard'}
+function refreshCur(){applySettings();if(document.querySelector('.modal-ov.show'))return;if(curPage()==='settings'&&document.activeElement&&gid('pgSettings').contains&&gid('pgSettings').contains(document.activeElement))return;showPage(curPage())}
+var fbAuth=null,fbDb=null,fbP=null,CH=150000,KEEP_DAYS=30;
+function fbInit(){if(fbP)return fbP;
+fbP=new Promise(function(res){
+try{if(!FB_CONFIG.apiKey||typeof firebase==='undefined'){res(null);return}
+var fa=firebase.initializeApp(FB_CONFIG,'samity');fbAuth=fa.auth();fbDb=fa.firestore();
+fbAuth.onAuthStateChanged(function(u){res(u||null)})}catch(e){res(null)}});
+return fbP}
+function idEmail(id){return id.indexOf('@')>-1?id:id+'@'+ID_DOMAIN}
+function fbCur(){return fbAuth&&fbAuth.currentUser}
+function dayKey(t){var d=t?new Date(t):new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function fbErrIsAuth(e){var c=e&&e.code||'';return c==='permission-denied'||c==='unauthenticated'||(/^auth\//.test(c)&&c!=='auth/network-request-failed')}
+function fbLoad(u,tries){tries=tries||0;
+var ref=fbDb.collection('samity').doc(u.uid);
+return ref.get().then(function(m){
+if(!m.exists||typeof m.data().n!=='number'||m.data().n<1)return {status:'ok',db:null};
+var md=m.data(),ids=[];for(var i=0;i<md.n;i++)ids.push(i);
+return Promise.all(ids.map(function(i){return ref.collection('c').doc(String(i)).get()})).then(function(ds){
+var ok=ds.every(function(d){return d.exists&&d.data().v===md.ls});
+if(!ok){if(tries<2)return fbLoad(u,tries+1);return {status:'error'}}
+return {status:'ok',db:ds.map(function(d){return d.data().t}).join('')}})})}
+function fbBackup(u,txt){
+var day=dayKey(),last=Number(lsGet('smtBkAt'))||0;
+if(lsGet('smtBkDay')===day&&Date.now()-last<3*3600*1000)return;
+var ref=fbDb.collection('samity').doc(u.uid).collection('bk'),n=Math.ceil(txt.length/CH),b=fbDb.batch();
+for(var i=0;i<n;i++)b.set(ref.doc(day+'_'+i),{d:day,i:i,n:n,t:txt.substr(i*CH,CH)});
+b.commit().then(function(){
+var newDay=lsGet('smtBkDay')!==day;lsSet('smtBkDay',day);lsSet('smtBkAt',String(Date.now()));
+if(!newDay)return;
+var ck=dayKey(Date.now()-KEEP_DAYS*86400000);
+return ref.where('d','<',ck).limit(400).get().then(function(q){if(q.empty)return;var bb=fbDb.batch();q.forEach(function(d){bb.delete(d.ref)});return bb.commit()})}).catch(function(){})}
+function fbSave(u,body){
+var ref=fbDb.collection('samity').doc(u.uid),txt=body.db,cp=JSON.parse(txt),ls=cp._ls||Date.now(),n=Math.max(1,Math.ceil(txt.length/CH));
+return fbDb.runTransaction(function(tx){return tx.get(ref).then(function(m){
+var md=m.exists?m.data():null;
+if(md&&typeof md.n==='number'&&md.n>0){
+if(md.ls!==body.baseLs)return {status:'conflict'};
+if(!body.force&&md.size>2000&&txt.length<md.size*0.5)return {status:'suspicious'}}
+for(var i=0;i<n;i++)tx.set(ref.collection('c').doc(String(i)),{v:ls,i:i,t:txt.substr(i*CH,CH)});
+var old=md&&typeof md.n==='number'?md.n:0;for(var j=n;j<old;j++)tx.delete(ref.collection('c').doc(String(j)));
+tx.set(ref,{ls:ls,n:n,size:txt.length,upd:Date.now()});
+return {status:'ok',ls:ls}})}).then(function(r){
+if(r.status==='ok'){fbBackup(u,txt);return r}
+if(r.status==='conflict')return fbLoad(u).then(function(d){return d.status==='ok'&&d.db?{status:'conflict',db:d.db}:{status:'error'}});
+return r})}
+function fbChgPw(u,o,n){
+var cred=firebase.auth.EmailAuthProvider.credential(u.email,o);
+return u.reauthenticateWithCredential(cred).then(function(){return u.updatePassword(n)}).then(function(){return {status:'ok',token:'fb'}},function(e){
+var c=e&&e.code||'';
+if(c==='auth/wrong-password'||c==='auth/invalid-credential'||c==='auth/invalid-login-credentials')return {status:'error',message:'বর্তমান পাসওয়ার্ড সঠিক নয়'};
+if(c==='auth/weak-password')return {status:'error',message:'নতুন পাসওয়ার্ড দুর্বল। আরও লম্বা দিন'};
+if(c==='auth/too-many-requests')return {status:'error',message:'অনেকবার ভুল হয়েছে। কিছুক্ষণ পরে চেষ্টা করুন'};
+if(c==='auth/network-request-failed')throw e;
+return {status:'error',message:'পাসওয়ার্ড বদলানো যায়নি'}})}
+function api(body){
+return fbInit().then(function(){
+var u=fbCur();if(!u)return {status:'auth'};
+var p;
+if(body.action==='load')p=fbLoad(u);
+else if(body.action==='save')p=fbSave(u,body);
+else if(body.action==='changePassword')p=fbChgPw(u,body.oldPassword,body.newPassword);
+else p=Promise.resolve({status:'error',message:'অজানা কাজ'});
+return p.catch(function(e){if(fbErrIsAuth(e))return {status:'auth'};throw e})})}
+function cloudDays(){return fbInit().then(function(){var u=fbCur();if(!u)throw new Error('auth');
+return fbDb.collection('samity').doc(u.uid).collection('bk').where('i','==',0).get().then(function(q){var a=[];q.forEach(function(d){a.push(d.data().d)});return a.sort().reverse()})})}
+function cloudDay(day){return fbInit().then(function(){var u=fbCur();if(!u)throw new Error('auth');
+var ref=fbDb.collection('samity').doc(u.uid).collection('bk');
+return ref.doc(day+'_0').get().then(function(f){if(!f.exists)throw new Error('none');var n=f.data().n,ids=[];for(var i=0;i<n;i++)ids.push(day+'_'+i);
+return Promise.all(ids.map(function(id){return ref.doc(id).get()})).then(function(ds){return ds.map(function(d){return d.data().t}).join('')})})})}
+function cloudBk(){
+if(navigator.onLine===false||!lsGet('smtTok')){toast('err','ইন্টারনেট দিয়ে প্রবেশ করা অবস্থায় করুন');return}
+cloudDays().then(function(days){
+if(!days.length){toast('info','এখনো ক্লাউডে কোনো দৈনিক কপি জমা হয়নি');return}
+var day=prompt('কোন তারিখের কপি ফেরাতে চান? (বর্তমান সব হিসাব ওই কপি দিয়ে বদলে যাবে)\n\nআছে: '+days.join(', ')+'\n\nতারিখ হুবহু লিখুন (যেমন '+days[0]+'):',days[0]);
+if(!day)return;day=day.trim();
+if(days.indexOf(day)<0){toast('err','এই তারিখে কপি নেই');return}
+cloudDay(day).then(function(t){var d=JSON.parse(t);if(!Array.isArray(d.products)||!Array.isArray(d.customers))throw 0;
+try{dlBackup()}catch(e){}
+DB=normDB(d);DB._dirty=true;saveLocal();syncUp(true);refreshCur();toast('ok',day+' তারিখের কপি ফেরানো হয়েছে। আগের হিসাবের একটি ফাইলও নেমেছে')}).catch(function(){toast('err','কপিটি পড়া যায়নি')})
+}).catch(function(){toast('err','কপির তালিকা আনা যায়নি')})}
+function applyServer(txt){DB=normDB(JSON.parse(txt));delete DB._dirty;lsSet('smtBase',String(DB._ls||0));saveLocal();refreshCur()}
+function sessionExpired(){lsDel('smtTok');showLogin('সেশন শেষ হয়েছে। আবার প্রবেশ করুন। আপনার ডিভাইসের হিসাব নিরাপদ আছে।')}
+function logoutLocal(msg){try{if(fbAuth)fbAuth.signOut()}catch(e){}try{if(IMGDB){IMGDB.close();IMGDB=null}indexedDB.deleteDatabase('smtimg')}catch(e){}lsDel('smtUid');lsDel('smtBkDay');lsDel('smtBkAt');lsDel('smtTok');lsDel('smtBase');lsDel('smtDB');lsDel('smtImported');lsDel('smtLv');lsDel('smtConflict');lsDel('smtOffFail');if(msg)lsSet('smtMsg',msg);location.reload()}
+var syncBusy=false,syncAgain=false;
+function syncUp(force){
+if(!lsGet('smtTok'))return;
+if(syncBusy){syncAgain=true;return}
+syncBusy=true;setSS('syncing');DB._ls=Date.now();saveLocal();
+var cp=Object.assign({},DB);delete cp._dirty;
+api({action:'save',db:JSON.stringify(cp),baseLs:getBase(),force:!!force}).then(function(d){
+if(d.status==='ok'){lsSet('smtBase',String(d.ls||cp._ls));delete DB._dirty;saveLocal();setSS('synced')}
+else if(d.status==='conflict'){lsSet('smtConflict',JSON.stringify(cp));applyServer(d.db);setSS('synced');toast('warn','অন্য ডিভাইসে নতুন পরিবর্তন ছিল, তাই সেটাই নেওয়া হয়েছে। আপনার এই পরিবর্তনের কপি রাখা আছে।')}
+else if(d.status==='suspicious'){setSS('error');if(confirm('নতুন ডেটা আগের চেয়ে অনেক ছোট। সত্যিই সংরক্ষণ করবেন?'))setTimeout(function(){syncUp(true)},0)}
+else if(d.status==='auth'){sessionExpired()}
+else setSS('error')
+}).catch(function(){setSS('error')}).then(function(){syncBusy=false;if(syncAgain){syncAgain=false;syncUp()}})}
+function importOld(cb){if(!OLD_SYNC_URL){cb();return}fetch(OLD_SYNC_URL+'?_t='+Date.now()).then(function(r){return r.json()}).then(function(d){if(d&&d.status==='ok'&&d.db){try{DB=normDB(JSON.parse(d.db))}catch(e){}}cb()}).catch(function(){cb()})}
+function pullServer(manual,cb){
+if(!lsGet('smtTok')||syncBusy){if(cb)cb();return}
+var fin=function(){if(cb)cb()};
+setSS('syncing');
+api({action:'load'}).then(function(d){
+if(d.status==='auth'){sessionExpired();return}
+if(d.status!=='ok'){setSS('error');fin();return}
+if(!d.db){
+var go=function(){DB._dirty=true;syncUp();fin()};
+if(!HAD_LOCAL&&!lsGet('smtImported')){importOld(function(){lsSet('smtImported','1');go()})}else go();
+return}
+var c=JSON.parse(d.db),base=getBase();
+if(c._ls===base){if(DB._dirty)syncUp();else{setSS('synced');if(manual)toast('ok','ডেটা আপ-টু-ডেট আছে')}}
+else{
+if(DB._dirty||(base===0&&HAD_LOCAL))lsSet('smtConflict',JSON.stringify(DB));
+applyServer(d.db);setSS('synced');
+if(DB._dirty)toast('warn','অন্য ডিভাইসে নতুন পরিবর্তন ছিল, তাই সেটাই নেওয়া হয়েছে। আপনার পরিবর্তনের কপি রাখা আছে।');
+else if(manual)toast('ok','ক্লাউড থেকে ডেটা আপডেট হয়েছে')}
+fin()
+}).catch(function(){setSS('error');fin()})}
+function manualSync(){if(DB._dirty){syncUp();toast('info','ক্লাউডে আপলোড হচ্ছে')}else pullServer(true)}
+var svT=0;
+function saveDB(){DB._dirty=true;saveLocal();clearTimeout(svT);svT=setTimeout(function(){syncUp()},2500)}
+window.addEventListener('pagehide',function(){if(DB._dirty){clearTimeout(svT);syncUp()}});
+var DB=loadLocal();
+
+/* ═══════════════ লগইন ═══════════════ */
+function showLogin(msg){
+gid('loginOv').style.display='flex';
+gid('lgEm').value=lsGet('smtUser');
+gid('lgPw').value='';gid('lgPw').type='password';gid('lgEye').textContent='দেখুন';
+gid('lgErr').textContent=msg||'';
+try{if(navigator.credentials&&window.PasswordCredential){navigator.credentials.get({password:true,mediation:'silent'}).then(function(c){if(c&&c.password&&!gid('lgPw').value){if(!gid('lgEm').value)gid('lgEm').value=c.id;gid('lgPw').value=c.password}}).catch(function(){})}}catch(e){}
+setTimeout(function(){var f=gid(lsGet('smtUser')?'lgPw':'lgEm');if(f)f.focus()},50)}
+function togglePw(){var i=gid('lgPw'),b=gid('lgEye'),show=i.type==='password';i.type=show?'text':'password';b.textContent=show?'লুকান':'দেখুন';b.setAttribute('aria-label',show?'পাসওয়ার্ড লুকান':'পাসওয়ার্ড দেখুন')}
+
+/* ── অফলাইন লগইনের জন্য এই ডিভাইসে পাসওয়ার্ডের হ্যাশ (আসল পাসওয়ার্ড কোথাও জমা থাকে না) ── */
+var memCred=null,relogBusy=false;
+function b64(buf){var a=new Uint8Array(buf),t='';for(var i=0;i<a.length;i++)t+=String.fromCharCode(a[i]);return btoa(t)}
+function jsHash(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var r=0;r<20000;r++){for(var i=0;i<str.length;i++){var ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909)}return (h2>>>0).toString(16)+(h1>>>0).toString(16)}
+function hasSubtle(){return typeof crypto!=='undefined'&&crypto&&crypto.subtle&&typeof TextEncoder!=='undefined'}
+function pwHash(pw,salt,mode){
+if(mode==='j'||!hasSubtle())return Promise.resolve('j:'+jsHash(salt+'|'+pw));
+var enc=new TextEncoder();
+return crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveBits']).then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode(salt),iterations:100000,hash:'SHA-256'},k,256)}).then(function(b){return 'p:'+b64(b)})}
+function newSalt(){try{var a=new Uint8Array(16);crypto.getRandomValues(a);return b64(a)}catch(e){return Math.random().toString(36).slice(2)+Date.now().toString(36)}}
+function saveVerifier(em,pw){var salt=newSalt();return pwHash(pw,salt).then(function(h){lsSet('smtLv',JSON.stringify({e:em,s:salt,h:h}))}).catch(function(){})}
+function checkVerifier(em,pw){var v=null;try{v=JSON.parse(lsGet('smtLv')||'null')}catch(e){}
+if(!v||v.e!==em||!v.h)return Promise.resolve(false);
+return pwHash(pw,v.s,v.h.charAt(0)).then(function(h){return h===v.h}).catch(function(){return false})}
+function offBlocked(){var f=null;try{f=JSON.parse(lsGet('smtOffFail')||'null')}catch(e){}return !!(f&&f.n>=5&&Date.now()-f.t<900000)}
+function offFail(){var f=null;try{f=JSON.parse(lsGet('smtOffFail')||'null')}catch(e){}f=(f&&Date.now()-f.t<900000)?{n:f.n+1,t:Date.now()}:{n:1,t:Date.now()};lsSet('smtOffFail',JSON.stringify(f))}
+function netLogin(em,pw){
+if(!FB_CONFIG.apiKey)return Promise.resolve({status:'error',message:'অ্যাপে ফায়ারবেসের কনফিগ বসানো হয়নি'});
+return fbInit().then(function(){
+if(!fbAuth)throw new Error('nofb');
+return fbAuth.signInWithEmailAndPassword(idEmail(em),pw).then(function(){return {status:'ok',token:'fb'}},function(e){
+var c=e&&e.code||'';
+if(c==='auth/network-request-failed')throw e;
+if(c==='auth/too-many-requests')return {status:'error',message:'অনেকবার ভুল হয়েছে। কিছুক্ষণ পরে আবার চেষ্টা করুন'};
+if(c==='auth/user-disabled')return {status:'error',message:'এই আইডি বন্ধ আছে। এডমিনের সাথে যোগাযোগ করুন'};
+if(c==='auth/invalid-email')return {status:'error',message:'আইডিতে শুধু ইংরেজি অক্ষর, সংখ্যা, ডট, - ও _ চলবে'};
+return {status:'error',message:'আইডি বা পাসওয়ার্ড সঠিক নয়'}})})}
+function offlineLogin(em,pw,cb){
+if(!lsGet('smtDB')||!getBase()||!lsGet('smtLv'))return cb(false,'সার্ভারে যোগাযোগ হয়নি। এই ডিভাইসে অফলাইনে ঢুকতে হলে আগে একবার ইন্টারনেট দিয়ে প্রবেশ করতে হবে');
+if(offBlocked())return cb(false,'অনেকবার ভুল হয়েছে। ১৫ মিনিট পরে চেষ্টা করুন');
+checkVerifier(em,pw).then(function(ok){
+if(!ok){offFail();return cb(false,'আইডি বা পাসওয়ার্ড সঠিক নয়')}
+lsDel('smtOffFail');lsSet('smtUser',em);memCred={email:em,pw:pw};cb(true)})}
+function onLoginOk(em,pw,tok){lsDel('smtPin');
+var u=fbCur(),uid=u?u.uid:'',prev=lsGet('smtUid');
+if(prev&&uid&&prev!==uid&&lsGet('smtDB')){
+/* এই ডিভাইসে আগে অন্য আইডির হিসাব ছিল: মিশতে দেওয়া হবে না */
+if(DB._dirty){try{dlBackup()}catch(e){}}
+(function(){try{if(IMGDB){IMGDB.close();IMGDB=null}indexedDB.deleteDatabase('smtimg')}catch(e){}})();['smtDB','smtBase','smtImported','smtLv','smtConflict','smtOffFail','smtPhoto','smtBkDay','smtBkAt'].forEach(lsDel);
+lsSet('smtUid',uid);lsSet('smtTok',tok);lsSet('smtUser',em);
+saveVerifier(em,pw).then(function(){location.reload()});return}
+if(uid)lsSet('smtUid',uid);
+lsSet('smtTok',tok);lsSet('smtUser',em);lsDel('smtOffFail');saveVerifier(em,pw);memCred=null;
+try{if(window.PasswordCredential&&navigator.credentials&&navigator.credentials.store)navigator.credentials.store(new PasswordCredential({id:em,password:pw,name:em}))}catch(e){}
+gid('lgPw').value='';gid('loginOv').style.display='none';startApp()}
+function doLogin(){
+var em=gid('lgEm').value.trim().toLowerCase(),pw=gid('lgPw').value,err=gid('lgErr'),btn=gid('lgBtn');
+if(!em||!pw){err.textContent='আইডি ও পাসওয়ার্ড দিন';return}
+err.textContent='';btn.disabled=true;btn.textContent='প্রবেশ হচ্ছে...';
+var done=function(){btn.disabled=false;btn.textContent='প্রবেশ করুন'};
+var offline=function(){offlineLogin(em,pw,function(ok,msg){done();if(ok){gid('lgPw').value='';gid('loginOv').style.display='none';startApp();setSS('error');toast('info','অফলাইনে প্রবেশ করেছেন। ইন্টারনেট এলে হিসাব নিজে সিঙ্ক হবে')}else err.textContent=msg})};
+if(!FB_CONFIG.apiKey){done();err.textContent='অ্যাপে ফায়ারবেসের কনফিগ বসানো হয়নি';return}
+if(navigator.onLine===false){offline();return}
+netLogin(em,pw).then(function(d){done();if(d.status==='ok')onLoginOk(em,pw,d.token);else err.textContent=d.message||'প্রবেশ করা যায়নি'},function(){offline()})}
+function tryRelogin(){
+if(lsGet('smtTok')||!memCred||navigator.onLine===false||relogBusy)return;
+relogBusy=true;
+netLogin(memCred.email,memCred.pw).then(function(d){relogBusy=false;
+if(d.status==='ok'){var c=memCred;lsSet('smtTok',d.token);saveVerifier(c.email,c.pw);memCred=null;toast('ok','অনলাইনে ফিরেছেন, সিঙ্ক হচ্ছে');if(DB._dirty)syncUp();else pullServer(false)}
+else if(/সঠিক নয়/.test(d.message||'')){memCred=null;showLogin('পাসওয়ার্ড বদলেছে। নতুন পাসওয়ার্ড দিয়ে প্রবেশ করুন। আপনার ডিভাইসের হিসাব নিরাপদ আছে।')}
+},function(){relogBusy=false})}
+function lockApp(){lsDel('smtTok');memCred=null;location.reload()}
+function startApp(){
+applySettings();
+if(navigator.onLine===false)toast('info','অফলাইন আছেন। কাজ করুন, নেট এলে নিজে সিঙ্ক হবে');
+var fresh=getBase()===0&&!HAD_LOCAL;
+if(!fresh)renderDash();
+imgFlushAll();pullServer(false,function(){if(fresh)renderDash();updNd()})}
+function bootApp(){
+if(!lsGet('smtTok')){var m=lsGet('smtMsg');lsDel('smtMsg');showLogin(m);return}
+pinGate(startApp)}
+setInterval(function(){tryRelogin();if(!lsGet('smtTok')||syncBusy)return;if(DB._dirty)syncUp();else if(!document.querySelector('.modal-ov.show'))pullServer(false)},45000);
+window.addEventListener('offline',function(){setSS('error')});
+window.addEventListener('online',function(){tryRelogin();if(lsGet('smtTok')){if(DB._dirty)syncUp();else pullServer(false)}});
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&lsGet('smtTok')&&!DB._dirty&&!document.querySelector('.modal-ov.show'))pullServer(false)});
+
+
+/* ═══════════════ সেটিং ═══════════════ */
+var HAS_DEF_PHOTO=false;
+var SET_DEF={owner:'',btn:'#4A2410',side:'#3A1D0C',c1:'#1D4E9E',c2:'#0F6E66',btnSize:'m',txtSize:'m',shop:'আমার সমিতি',sub:'সমিতি ব্যবস্থাপনা',logo:'স',showPhoto:false,photoY:30,remDays:'3',msgSav:'আসসালামু আলাইকুম {নাম}। {সমিতি}-এর মাসিক সঞ্চয় ৳ {টাকা} জমার তারিখ {তারিখ} ({দিন} দিন পরে)। অনুগ্রহ করে সময়মতো জমা দিন। ধন্যবাদ।',msgLoan:'আসসালামু আলাইকুম {নাম}। আপনার ঋণের লাভ ৳ {টাকা} জমার তারিখ {তারিখ} ({দিন} দিন পরে)। অনুগ্রহ করে সময়মতো জমা দিন। ধন্যবাদ।',msgOver:'আসসালামু আলাইকুম {নাম}। {সমিতি}-এ আপনার {বিষয়} ৳ {টাকা} {দিন} দিন ধরে বাকি আছে। অনুগ্রহ করে দ্রুত জমা দিন। ধন্যবাদ।',msgRec:'{সমিতি} — রসিদ\nসদস্য: {নাম}\nতারিখ: {তারিখ}\n{বিবরণ}\nধন্যবাদ।'};
+var PRESETS=[['ধানক্ষেত সবুজ','#14301F'],['নদীর নীল','#1D4E9E'],['গাঢ় টিল','#0F6E66'],['মাটির খয়েরি','#6B3F1D'],['আঙুরি বেগুনি','#5B2A86'],['মেরুন','#8C1D2E'],['কালচে ধূসর','#2B2F36']];
+function getSet(){var s=(DB&&DB.settings)||{},o={};for(var k in SET_DEF)o[k]=(s[k]===undefined||s[k]===null||s[k]==='')?SET_DEF[k]:s[k];return o}
+function hx(c){c=String(c||'').replace('#','');if(c.length===3)c=c.replace(/./g,'$&$&');return /^[0-9a-f]{6}$/i.test(c)?[parseInt(c.substr(0,2),16),parseInt(c.substr(2,2),16),parseInt(c.substr(4,2),16)]:[20,48,31]}
+function toHex(a){return '#'+a.map(function(v){v=Math.max(0,Math.min(255,Math.round(v)));return (v<16?'0':'')+v.toString(16)}).join('')}
+function mixC(a,b,t){var x=hx(a),y=hx(b);return toHex([x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t])}
+function lumC(c){var x=hx(c).map(function(v){v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*x[0]+.7152*x[1]+.0722*x[2]}
+function onC(c){return lumC(c)>.2?'#14201A':'#ffffff'}
+function applySettings(){
+var S=getSet(),btn=S.btn,bt=onC(btn),bh=lumC(btn)>.2?mixC(btn,'#000000',.14):mixC(btn,'#ffffff',.16);
+var side=S.side,st=onC(side),dark=st==='#ffffff';
+var sh=dark?mixC(side,'#ffffff',.07):mixC(side,'#000000',.06),sa=dark?mixC(side,'#ffffff',.16):mixC(side,'#000000',.12),sb=dark?mixC(side,'#ffffff',.12):mixC(side,'#000000',.14),stx=dark?mixC(side,'#ffffff',.68):mixC(side,'#000000',.62);
+var css=':root{--btn:'+btn+';--btn-t:'+bt+';--btn-h:'+bh+';--sb:'+side+';--sb-h:'+sh+';--sb-a:'+sa+';--sb-b:'+sb+';--sb-t:'+stx+';--sb-ta:'+st+'}';
+css+='.lg-btn,.mbtn-gr,.mbtn-b,.pl-add,.action-btns button[style*="--blu"],.action-btns button[style*="--grn"]{background:var(--btn)!important;border-color:var(--btn)!important;color:var(--btn-t)!important}';
+css+='.lg-btn:hover,.mbtn-gr:hover,.mbtn-b:hover,.pl-add:hover{background:var(--btn-h)!important;border-color:var(--btn-h)!important;filter:none!important}';
+css+='.sb-brand,.sb-nm,.nav-i:hover,.nav-i.act{color:'+st+'}.nav-lbl{color:var(--sb-t)!important}.sb-tools button:hover{color:'+st+'}';
+if(side.toLowerCase()!==SET_DEF.side.toLowerCase()){var lg=dark?mixC(side,'#ffffff',.28):mixC(side,'#000000',.22);css+='.sb-logo,.sb-av{background:'+lg+'!important;color:'+onC(lg)+'}'}
+css+='.dx-tag.red{--c:'+S.c1+';color:'+onC(S.c1)+'}.dx-tag.amb{--c:'+S.c2+';color:'+onC(S.c2)+'}';
+var bs=S.btnSize==='s'?['5px 10px','11.5px']:S.btnSize==='l'?['12px 22px','15.5px']:null;
+if(bs)css+='.dx-btn,.mbtn,.action-btns button,.pl-add,.lg-btn{padding:'+bs[0]+'!important;font-size:'+bs[1]+'!important}';
+var z=S.txtSize==='s'?.9:S.txtSize==='l'?1.12:1;
+if(z!==1)css+='.page,.modal{zoom:'+z+'}';
+var ph=lsGet('smtPhoto');
+if(S.showPhoto===false||(!ph&&!HAS_DEF_PHOTO))css+='.dx-grid .dx-photo{display:none!important}.dx-grid{grid-template-columns:1fr!important}';
+else{if(ph&&/^data:image\//.test(ph))css+='.dx-photo{background-image:url("'+ph+'")!important}';css+='.dx-photo{background-position:50% '+(Number(S.photoY)||30)+'%!important}'}
+var el=gid('setStyle');if(!el){el=document.createElement('style');el.id='setStyle';(document.head||document.body).appendChild(el)}
+el.textContent=css;
+var q=function(sel,t){var e=document.querySelector(sel);if(e)e.textContent=t};
+var em=lsGet('smtUser')||'',nm=S.owner||em||'ব্যবহারকারী';
+q('.sb-brand',S.shop);q('.sb-sub',S.sub);q('.sb-logo',S.logo);q('.lg-t',S.shop);q('.sb-nm',nm);q('.sb-av',Array.from(nm)[0]||'ব');document.title=S.shop}
+var setTimer=0;
+function queueSave(){clearTimeout(setTimer);setTimer=setTimeout(function(){saveDB()},600)}
+function setSet(k,v,rerender){DB.settings=DB.settings||{};DB.settings[k]=v;applySettings();queueSave();if(rerender)initSettings()}
+function swatches(k,cur){return '<div class="st-sw">'+PRESETS.map(function(x){return '<button type="button" class="'+(String(cur).toLowerCase()===x[1].toLowerCase()?'on':'')+'" style="background:'+x[1]+'" aria-label="'+x[0]+'" aria-pressed="'+(String(cur).toLowerCase()===x[1].toLowerCase())+'" title="'+x[0]+'" onclick="setSet(\''+k+'\',\''+x[1]+'\',true)"></button>'}).join('')+'</div>'}
+function seg(k,cur,opts){return '<div class="st-seg" role="group">'+opts.map(function(o){return '<button type="button" class="'+(cur===o[0]?'on':'')+'" aria-pressed="'+(cur===o[0])+'" onclick="setSet(\''+k+'\',\''+o[0]+'\',true)">'+o[1]+'</button>'}).join('')+'</div>'}
+function initSettings(){
+var S=getSet(),email=lsGet('smtUser')||'',hasPh=!!lsGet('smtPhoto');
+var h='<div class="st"><div class="st-grid"><div class="st-col">';
+h+='<section class="st-card"><h3>সমিতির পরিচয়</h3><p class="st-note">সাইডবার ও লগইন পর্দায় এই নাম দেখাবে।</p><div class="fg"><label for="stOwner">আপনার নাম</label><input id="stOwner" type="text" maxlength="40" value="'+esc(S.owner)+'" oninput="setSet(\'owner\',this.value.trim())"></div><div class="fg"><label for="stShop">সমিতির নাম</label><input id="stShop" type="text" maxlength="40" value="'+esc(S.shop)+'" oninput="setSet(\'shop\',this.value.trim())"></div><div class="fg"><label for="stSub">নামের নিচের লেখা</label><input id="stSub" type="text" maxlength="40" value="'+esc(S.sub)+'" oninput="setSet(\'sub\',this.value.trim())"></div><div class="fg"><label for="stLogo">লোগোর অক্ষর (সর্বোচ্চ ৩টি)</label><input id="stLogo" type="text" maxlength="3" value="'+esc(S.logo)+'" oninput="setSet(\'logo\',this.value.trim())"></div></section>';
+h+='<section class="st-card"><h3>রং</h3><p class="st-note">বেছে নিন, সাথে সাথে পুরো অ্যাপে বদলে যাবে।</p>';
+h+='<div class="st-row"><span class="st-lbl">বাটনের রং</span>'+swatches('btn',S.btn)+'<input type="color" aria-label="নিজের পছন্দের বাটনের রং" value="'+S.btn+'" oninput="setSet(\'btn\',this.value)"></div>';
+h+='<div class="st-row"><span class="st-lbl">সাইডবারের রং</span>'+swatches('side',S.side)+'<input type="color" aria-label="নিজের পছন্দের সাইডবারের রং" value="'+S.side+'" oninput="setSet(\'side\',this.value)"></div>';
+h+='<div class="st-row"><span class="st-lbl">কার্ড ১ (সঞ্চয়)</span><input type="color" aria-label="সঞ্চয় কার্ডের রং" value="'+S.c1+'" oninput="setSet(\'c1\',this.value)"><span class="st-note" style="margin:0">মোট সঞ্চয়</span></div>';
+h+='<div class="st-row"><span class="st-lbl">কার্ড ২ (ঋণ)</span><input type="color" aria-label="ঋণ কার্ডের রং" value="'+S.c2+'" oninput="setSet(\'c2\',this.value)"><span class="st-note" style="margin:0">ঋণ বাকি</span></div>';
+h+='<div class="dx"><div class="st-prev"><button type="button" class="dx-btn" tabindex="-1">নমুনা বাটন</button><button type="button" class="dx-btn" tabindex="-1">কিস্তি আদায়</button></div></div></section>';
+h+='<section class="st-card"><h3>সাইজ</h3><div class="st-row"><span class="st-lbl">বাটনের সাইজ</span>'+seg('btnSize',S.btnSize,[['s','ছোট'],['m','মাঝারি'],['l','বড়']])+'</div><div class="st-row"><span class="st-lbl">লেখার সাইজ</span>'+seg('txtSize',S.txtSize,[['s','ছোট'],['m','মাঝারি'],['l','বড়']])+'</div><p class="st-note">লেখার সাইজ বদলালে পাতার ভেতরের সব লেখা ছোট বা বড় হবে।</p></section>';
+h+='</div><div class="st-col">';
+h+='<section class="st-card"><h3>সতর্কতা ও মেসেজ</h3><div class="st-row"><span class="st-lbl">কত দিন আগে ঘণ্টায় দেখাবে</span>'+seg('remDays',String(S.remDays),[['2','২ দিন'],['3','৩ দিন'],['5','৫ দিন']])+'</div><p class="st-note">মেসেজে এই শব্দগুলো নিজে বদলে বসে যাবে: <b>{নাম}</b>, <b>{টাকা}</b>, <b>{তারিখ}</b>, <b>{দিন}</b>, <b>{বিষয়}</b>, <b>{সমিতি}</b>, <b>{বিবরণ}</b> (রসিদে)।</p>'+[['msgSav','সঞ্চয় জমার আগাম তাগাদা'],['msgLoan','ঋণের লাভ জমার আগাম তাগাদা'],['msgOver','বাকির তাগাদা'],['msgRec','রসিদ']].map(function(p){return '<div class="fg"><label>'+p[1]+'</label><textarea rows="3" style="width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;font:inherit" oninput="setSet(\''+p[0]+'\',this.value)">'+esc(S[p[0]])+'</textarea></div>'}).join('')+'</section>';
+h+='<section class="st-card"><h3>অ্যাপ লক (পিন)</h3>'+pinCard()+'</section>';
+
+h+='<section class="st-card"><h3>পাসওয়ার্ড বদলান</h3><p class="st-note">'+(email?'আপনার আইডি: <b>'+esc(email)+'</b>. ':'')+'বদলালে অন্য ডিভাইসে নতুন পাসওয়ার্ড দিয়ে আবার ঢুকতে হবে। ইন্টারনেট লাগবে।</p><form onsubmit="chgPw();return false"><div class="fg"><label for="stOld">বর্তমান পাসওয়ার্ড</label><div class="st-pwwrap"><input id="stOld" type="password" autocomplete="current-password"><button type="button" class="lg-eye" id="stEye" onclick="togglePw2()">দেখুন</button></div></div><div class="fg"><label for="stNew">নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)</label><input id="stNew" type="password" autocomplete="new-password"></div><div class="fg"><label for="stNew2">নতুন পাসওয়ার্ড আবার লিখুন</label><input id="stNew2" type="password" autocomplete="new-password"></div><div class="st-msg" id="stPwMsg" role="alert"></div><button type="submit" class="dx-btn" id="stPwBtn">পাসওয়ার্ড বদলান</button></form></section>';
+h+='<section class="st-card"><h3>রিকভারি ইমেইল</h3>'+(/@hisab\.app$/.test(email||'')?'<p class="st-note">পাসওয়ার্ড ভুলে গেলে নিজেই নতুন পাসওয়ার্ড বানাতে একটা আসল ইমেইল যোগ করুন। ইমেইলে একটা লিংক যাবে, লিংকে চাপ দিলে <b>এখন থেকে ওই ইমেইলই আপনার আইডি</b> হবে (হিসাব একই থাকবে)।</p><form onsubmit="addRecEmail();return false"><div class="fg"><label for="stRe">আপনার ইমেইল</label><input id="stRe" type="email" autocomplete="email" autocapitalize="none" placeholder="example@gmail.com"></div><div class="fg"><label for="stRp">বর্তমান পাসওয়ার্ড</label><input id="stRp" type="password" autocomplete="current-password"></div><div class="st-msg" id="stReMsg" role="alert"></div><button class="st-btn" id="stReBtn" type="submit">লিংক পাঠান</button></form>':'<p class="st-note">আপনার আইডি একটা আসল ইমেইল। পাসওয়ার্ড ভুলে গেলে ঢোকার পাতায় "পাসওয়ার্ড ভুলে গেছেন?" চাপলে ইমেইলে লিংক যাবে।</p>')+'</section>';
+h+='<section class="st-card"><h3>ডিভাইস ও ব্যাকআপ</h3><div class="st-btns"><button type="button" class="st-btn" onclick="dlBackup()"><i class="fas fa-download"></i> ব্যাকআপ নামান</button><button type="button" class="st-btn" onclick="cloudBk()"><i class="fas fa-clock-rotate-left"></i> ক্লাউডের দৈনিক কপি থেকে ফেরান</button><button type="button" class="st-btn" onclick="resetSettings()"><i class="fas fa-rotate-left"></i> সেটিং আগের মতো করুন</button><button type="button" class="st-btn dg" onclick="wipeDevice()"><i class="fas fa-trash"></i> এই ডিভাইস থেকে হিসাব মুছুন</button></div><p class="st-note" style="margin-top:10px">হিসাব মুছলে শুধু এই ডিভাইস থেকে যাবে, ক্লাউডে থাকবে। ক্লাউড প্রতিদিনের একটা কপি ৩০ দিন রাখে। মোছার আগে একটা ব্যাকআপ ফাইলও নামবে।</p></section>';
+h+='</div></div></div>';
+gid('pgSettings').innerHTML=h}
+function togglePw2(){var ids=['stOld','stNew','stNew2'],b=gid('stEye'),show=gid('stOld').type==='password';ids.forEach(function(i){gid(i).type=show?'text':'password'});b.textContent=show?'লুকান':'দেখুন'}
+function stMsg(t,ok){var m=gid('stPwMsg');m.textContent=t;m.className='st-msg '+(ok?'ok':'err')}
+function forgotPw(){var em=gid('lgEm').value.trim().toLowerCase(),err=gid('lgErr');
+if(!em){err.textContent='আগে ওপরে আপনার আইডি বা ইমেইল লিখুন';return}
+if(em.indexOf('@')<0||/@hisab\.app$/.test(em)){err.textContent='এই আইডিতে রিকভারি ইমেইল যোগ করা নেই। যিনি আপনাকে আইডি দিয়েছেন তাঁকে বলুন নতুন পাসওয়ার্ড দিতে';return}
+if(navigator.onLine===false){err.textContent='ইন্টারনেট চালু করুন';return}
+err.textContent='পাঠানো হচ্ছে...';
+fbInit().then(function(){return fbAuth.sendPasswordResetEmail(em)}).then(function(){err.textContent='ইমেইলে লিংক পাঠানো হয়েছে। ইনবক্স ও স্প্যাম ফোল্ডার দেখুন। লিংকে চাপ দিয়ে নতুন পাসওয়ার্ড বানান'},function(e){var c=e&&e.code||'';err.textContent=c==='auth/invalid-email'?'ইমেইলটা সঠিক নয়':c==='auth/too-many-requests'?'অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পরে করুন':'পাঠানো যায়নি। আবার চেষ্টা করুন'})}
+function reMsg(t,ok){var m=gid('stReMsg');m.textContent=t;m.className='st-msg '+(ok?'ok':'err')}
+function addRecEmail(){var em=gid('stRe').value.trim().toLowerCase(),pw=gid('stRp').value,btn=gid('stReBtn');
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)||/@hisab\.app$/.test(em)){reMsg('সঠিক ইমেইল লিখুন');return}
+if(!pw){reMsg('বর্তমান পাসওয়ার্ড দিন');return}
+if(!lsGet('smtTok')||navigator.onLine===false){reMsg('ইন্টারনেট দিয়ে প্রবেশ করা অবস্থায় করুন');return}
+var u=fbCur();if(!u){reMsg('আবার প্রবেশ করুন');return}
+btn.disabled=true;reMsg('পাঠানো হচ্ছে...',true);
+u.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(u.email,pw)).then(function(){return u.verifyBeforeUpdateEmail(em)}).then(function(){btn.disabled=false;gid('stRp').value='';reMsg('ইমেইলে লিংক পাঠানো হয়েছে। ইনবক্স/স্প্যাম দেখে লিংকে চাপ দিন। তারপর থেকে ওই ইমেইল দিয়ে ঢুকবেন।',true)},function(e){btn.disabled=false;var c=e&&e.code||'';reMsg(c==='auth/wrong-password'||c==='auth/invalid-credential'?'পাসওয়ার্ড সঠিক নয়':c==='auth/email-already-in-use'?'এই ইমেইল আগেই অন্য আইডিতে ব্যবহার হয়েছে':c==='auth/invalid-email'?'ইমেইলটা সঠিক নয়':c==='auth/too-many-requests'?'অনেকবার চেষ্টা হয়েছে। কিছুক্ষণ পরে করুন':'পাঠানো যায়নি। আবার চেষ্টা করুন')})}
+function chgPw(){
+var o=gid('stOld').value,n=gid('stNew').value,n2=gid('stNew2').value,btn=gid('stPwBtn');
+if(!o||!n||!n2){stMsg('সবগুলো ঘর পূরণ করুন');return}
+if(n.length<6){stMsg('নতুন পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে');return}
+if(n!==n2){stMsg('নতুন পাসওয়ার্ড দুই জায়গায় মেলেনি');return}
+if(n===o){stMsg('নতুন পাসওয়ার্ড বর্তমানটার থেকে আলাদা হতে হবে');return}
+if(!lsGet('smtTok')||navigator.onLine===false){stMsg('ইন্টারনেট দিয়ে প্রবেশ করা অবস্থায় পাসওয়ার্ড বদলান');return}
+btn.disabled=true;stMsg('বদলানো হচ্ছে...',true);
+api({action:'changePassword',oldPassword:o,newPassword:n}).then(function(d){btn.disabled=false;
+if(d.status==='ok'){lsSet('smtTok',d.token);saveVerifier(lsGet('smtUser'),n);gid('stOld').value='';gid('stNew').value='';gid('stNew2').value='';stMsg('পাসওয়ার্ড বদলেছে। এখন থেকে নতুনটা দিয়ে ঢুকবেন।',true);toast('ok','পাসওয়ার্ড বদলানো হয়েছে')}
+else if(d.status==='auth'){sessionExpired()}
+else if(/অজানা/.test(d.message||''))stMsg('সার্ভার এখনো আপডেট করা হয়নি। Code.gs নতুন করে Deploy করুন।');
+else stMsg(d.message||'পাসওয়ার্ড বদলানো যায়নি')
+}).catch(function(){btn.disabled=false;stMsg('সার্ভারে যোগাযোগ হয়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন')})}
+function pickPhoto(inp){var f=inp.files&&inp.files[0];if(!f)return;
+if(!/^image\//.test(f.type)){toast('err','ছবির ফাইল বেছে নিন');inp.value='';return}
+var fr=new FileReader();fr.onload=function(){var img=new Image();img.onload=function(){
+var M=900,k=Math.min(1,M/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(img.width*k));c.height=Math.max(1,Math.round(img.height*k));c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+var d=c.toDataURL('image/jpeg',.8);
+try{localStorage.setItem('smtPhoto',d)}catch(e){toast('err','ছবি রাখার জায়গা নেই। ছোট ছবি দিন');return}
+if(getSet().showPhoto===false){DB.settings.showPhoto=true;queueSave()}
+applySettings();initSettings();toast('ok','ছবি বসানো হয়েছে')};
+img.onerror=function(){toast('err','ছবিটি খোলা যায়নি')};img.src=fr.result};
+fr.readAsDataURL(f);inp.value=''}
+function resetPhoto(){lsDel('smtPhoto');applySettings();initSettings();toast('ok',HAS_DEF_PHOTO?'আগের ছবি ফেরানো হয়েছে':'ছবি সরানো হয়েছে')}
+function resetSettings(){if(!confirm('রং, সাইজ, নাম ও ছবির সব সেটিং আগের মতো হয়ে যাবে। হিসাব বদলাবে না। করবেন?'))return;DB.settings={};lsDel('smtPhoto');applySettings();saveDB();initSettings();toast('ok','সেটিং আগের মতো করা হয়েছে')}
+function wipeDevice(){
+if(!confirm('এই ডিভাইস থেকে সব হিসাব মুছে যাবে। ক্লাউডে হিসাব থাকবে, আবার ঢুকলেই ফিরে আসবে।\n\nআগে একটা ব্যাকআপ ফাইল নামবে। এগিয়ে যাবেন?'))return;
+if(DB._dirty&&!confirm('কিছু পরিবর্তন এখনো ক্লাউডে যায়নি। মুছলে সেগুলো শুধু ব্যাকআপ ফাইলে থাকবে। তবুও মুছবেন?'))return;
+dlBackup();setTimeout(function(){logoutLocal('')},700)}
+
+/* ═══════════════ ব্যাকআপ ═══════════════ */
+function dlBackup(){var cp=Object.assign({},DB);delete cp._dirty;var b=new Blob([JSON.stringify(cp)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='hisab-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);toast('ok','ব্যাকআপ ফাইল নামানো হয়েছে')}
+function rsBackup(inp){var f=inp.files&&inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(!Array.isArray(d.members)||!Array.isArray(d.savings)||!Array.isArray(d.loans))throw 0;if(!confirm('বর্তমান সব ডেটা এই ব্যাকআপ দিয়ে বদলে যাবে। নিশ্চিত?')){inp.value='';return}DB=normDB(d);DB._dirty=true;saveLocal();syncUp(true);refreshCur();toast('ok','ব্যাকআপ থেকে ফেরানো হয়েছে')}catch(e){toast('err','ফাইলটি সঠিক ব্যাকআপ নয়')}inp.value=''};r.readAsText(f)}
+
+/* ═══════════════ ইউআই হেল্পার ═══════════════ */
+function updateDT(){document.getElementById('dtDate').textContent=autoDateFull();document.getElementById('dtTime').textContent=autoTime()}
+updateDT();setInterval(updateDT,10000);
+function toast(t,m){var b=document.getElementById('toastBox'),e=document.createElement('div');e.className='toast';var ic={ok:'fa-check',info:'fa-info',warn:'fa-exclamation',err:'fa-times'};e.innerHTML='<div class="t-ic '+t+'"><i class="fas '+ic[t]+'"></i></div><span>'+esc(m)+'</span>';b.appendChild(e);setTimeout(function(){e.classList.add('out');setTimeout(function(){e.remove()},250)},3000)}
+function openM(id){document.getElementById(id).classList.add('show');document.body.style.overflow='hidden'}
+function closeM(id){document.getElementById(id).classList.remove('show');document.body.style.overflow=''}
+function setM(id,h){document.getElementById(id+'Inner').innerHTML=h}
+function sCL(i,d){var inp=document.getElementById(i);if(inp)inp.addEventListener('blur',function(){setTimeout(function(){var dd=document.getElementById(d);if(dd)dd.style.display='none'},150)})}
+document.getElementById('mainModal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeM('mainModal')});
+document.getElementById('subModal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeM('subModal')});
+document.getElementById('sub2Modal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeM('sub2Modal')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeM('sub2Modal');closeM('subModal');closeM('mainModal')}});
+/* ড্রপডাউনে ক্লিক করলে ইনপুট ফোকাস না হারায়, যাতে তালিকা বন্ধ হওয়ার আগেই পণ্য যোগ হয় */
+document.addEventListener('mousedown',function(e){if(e.target.closest&&e.target.closest('.prod-dropdown,.cust-dd'))e.preventDefault()});
+
+/* ═══════════════ নেভিগেশন ═══════════════ */
+var PT={dashboard:'ড্যাশবোর্ড',members:'সদস্য তালিকা',loans:'ঋণ তালিকা',expenses:'খরচ',summary:'হিসাব সারাংশ',settings:'সেটিং'};
+function showPage(p){document.querySelectorAll('.page').forEach(function(e){e.classList.remove('act')});document.querySelectorAll('.nav-i').forEach(function(e){e.classList.remove('act')});document.getElementById('pg'+p.charAt(0).toUpperCase()+p.slice(1)).classList.add('act');document.querySelector('.nav-i[data-p="'+p+'"]').classList.add('act');document.getElementById('pageTitle').textContent=PT[p];if(p==='dashboard')renderDash();else if(p==='members')initMem();else if(p==='loans')initLoans();else if(p==='expenses')initExp();else if(p==='summary')initSUM();else if(p==='settings')initSettings();document.getElementById('sidebar').classList.remove('open');document.getElementById('sbOv').style.display='none'}
+document.querySelectorAll('.nav-i').forEach(function(el){function go(){showPage(el.dataset.p)}el.addEventListener('click',go);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+document.getElementById('hamb').addEventListener('click',function(){var s=document.getElementById('sidebar'),o=document.getElementById('sbOv');s.classList.toggle('open');o.style.display=s.classList.contains('open')?'block':'none'});
+document.getElementById('sbOv').addEventListener('click',function(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sbOv').style.display='none'});
+document.getElementById('notifBtn').addEventListener('click',openBell);
+document.getElementById('loBtn').addEventListener('click',function(){if(DB._dirty&&!confirm('কিছু পরিবর্তন এখনো ক্লাউডে যায়নি। লগআউট করলেও হিসাব এই ডিভাইসে থাকবে, আবার ঢুকলে ক্লাউডে যাবে। লগআউট করবেন?'))return;lockApp()});
+
+/* ═══════════════ সমিতি: সহায়ক ═══════════════ */
+var WD=['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+function iso(d){d=d||new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function pIso(s){var p=String(s||'').split('-');if(p.length!==3)return new Date();return new Date(+p[0],(+p[1])-1,+p[2])}
+function fD(s){if(!s)return '';var p=String(s).split('-');return p.length===3?toBn(p[2]+'/'+p[1]+'/'+p[0]):esc(s)}
+function cdate(y,m,day){var r=new Date(y,m,1),last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(day,last));return r}
+function T0(){var d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function dd(a,b){return Math.round((b-a)/864e5)}
+function mon(n){return '৳ '+toBn(Number(Math.round((+n||0)*100)/100).toLocaleString('en-IN',{maximumFractionDigits:2}))}
+function rd(n){return Math.round((+n||0)*100)/100}
+function val(id){var e=gid(id);return e?e.value:''}
+function nv(id){return Math.max(0,+toEn(val(id)||'0')||0)}
+function nid(k){DB.nxt=DB.nxt||{};DB.nxt[k]=(DB.nxt[k]||0)+1;return DB.nxt[k]}
+function mem(id){return DB.members.find(function(m){return m.id===id})}
+function loanOf(id){return DB.loans.find(function(l){return l.id===id})}
+function getRem(){return Number(getSet().remDays)||3}
+function xBtn(h){return '<button class="m-x" onclick="closeM(\''+h+'\')"><i class="fas fa-times"></i></button>'}
+function normPhone(p){var d=toEn(String(p||'')).replace(/[^0-9]/g,'');if(d.indexOf('880')===0)return d;if(d.charAt(0)==='0')return '88'+d;if(d.length===10&&d.charAt(0)==='1')return '880'+d;return d}
+function fmtAmt(n){return toBn(String(Math.round((+n||0)*100)/100))}
+function rf(){updNd();showPage(curPage())}
+
+/* ── সঞ্চয় ── */
+function mSav(mid){var dep=0,wd=0,adj=0;DB.savings.forEach(function(t){if(t.mid!==mid)return;if(t.type==='deposit')dep+=t.amt;else if(t.type==='withdraw')wd+=t.amt;else if(t.type==='loanadj')adj+=t.amt});return{dep:rd(dep),wd:rd(wd),adj:rd(adj),bal:rd(dep-wd-adj)}}
+function sDue(m,k){var j=pIso(m.joinDate),day=Math.min(31,Math.max(1,+m.saveDay||j.getDate()));var d=cdate(j.getFullYear(),j.getMonth(),day);if(d<j)k++;return cdate(j.getFullYear(),j.getMonth()+k,day)}
+function sStat(m,T){var amt=+m.saveAmt||0;if(!(amt>0)||m.status!=='active')return null;
+var s=mSav(m.id).dep,cov=Math.floor((s+0.005)/amt),n=0;while(n<720&&sDue(m,n)<=T)n++;
+var r={amt:amt,arr:0,days:0,nd:null,nin:null};
+if(n>cov){r.arr=rd(n*amt-s);r.days=dd(sDue(m,cov),T)}
+var u=Math.max(cov,n);r.nd=sDue(m,u);r.nin=dd(T,r.nd);return r}
+
+/* ── ঋণ ও লাভ ── */
+function lPaid(l){var a=0,b=0,c=0;(l.pays||[]).forEach(function(p){a+=p.principal||0;b+=p.profit||0;c+=p.fine||0});return{prin:rd(a),prof:rd(b),fine:rd(c)}}
+function lDue(l,k){var s=pIso(l.date);return cdate(s.getFullYear(),s.getMonth()+k,s.getDate())}
+function lBefore(l,k){var p=0;(l.pays||[]).forEach(function(x){if((x.k||1)<k)p+=x.principal||0});return rd(l.amount-p)}
+function lPD(l,k){return rd((+l.rate||0)/100*Math.max(0,lBefore(l,k)))}
+function lPP(l,k){var a=0;(l.pays||[]).forEach(function(x){if((x.k||1)===k)a+=x.profit||0});return rd(a)}
+function lStat(l,T){var pd=lPaid(l),prin=rd(l.amount-pd.prin),r={prin:prin,paid:pd,arr:0,days:0,fk:null,last:null,sl:null,nk:null,nd:null,nin:null,nAmt:0,open:prin>0.004,term:0};
+var k=1;while(k<720&&lDue(l,k)<=T){var due=lPD(l,k),pp=lPP(l,k);if(due-pp>0.004){r.arr=rd(r.arr+due-pp);if(r.fk==null)r.fk=k}k++}
+if(r.fk!=null)r.days=dd(lDue(l,r.fk),T);
+r.nk=k;r.nd=lDue(l,k);r.nin=dd(T,r.nd);r.nAmt=Math.max(0,rd(lPD(l,k)-lPP(l,k)));
+(l.pays||[]).forEach(function(p){if(p.via==='saving')return;var d=pIso(p.date);if(!r.last||d>r.last)r.last=d});
+r.sl=dd(r.last||pIso(l.date),T);
+if(+l.months>0){var end=lDue(l,+l.months);if(r.open&&T>end)r.term=dd(end,T)}
+return r}
+function defK(l){var pd=lPaid(l);if(l.amount-pd.prin<=0.004)return null;
+if(!(+l.rate>0)){var mk=0;(l.pays||[]).forEach(function(x){mk=Math.max(mk,x.k||1)});return Math.max(1,mk)}
+for(var k=1;k<720;k++){if(lPD(l,k)-lPP(l,k)>0.004)return k}return 1}
+function mLoans(mid){return DB.loans.filter(function(l){return l.mid===mid})}
+function mLoanBal(mid){var T=T0(),s=0;mLoans(mid).forEach(function(l){s+=lStat(l,T).prin});return rd(s)}
+function mLoanArr(mid){var T=T0(),a=0,d=0;mLoans(mid).forEach(function(l){var q=lStat(l,T);if(q.open&&q.arr>0){a+=q.arr;d=Math.max(d,q.days)}});return{arr:rd(a),days:d}}
+
+/* ── সতর্কতা (ঘণ্টা) ── */
+function alerts(){var T=T0(),rem=getRem(),a=[];
+DB.members.forEach(function(m){var s=sStat(m,T);if(!s)return;
+if(s.arr>0)a.push({mid:m.id,kind:'sav',t:'over',amt:s.arr,days:s.days,date:null,ord:-s.days});
+else if(s.nin<=rem)a.push({mid:m.id,kind:'sav',t:'soon',amt:s.amt,days:s.nin,date:s.nd,ord:s.nin})});
+DB.loans.forEach(function(l){if(!mem(l.mid))return;var q=lStat(l,T);if(!q.open)return;
+if(q.arr>0)a.push({mid:l.mid,lid:l.id,kind:'loan',t:'over',amt:q.arr,days:q.days,date:null,ord:-q.days});
+else if(q.nin<=rem&&q.nAmt>0)a.push({mid:l.mid,lid:l.id,kind:'loan',t:'soon',amt:q.nAmt,days:q.nin,date:q.nd,ord:q.nin})});
+a.sort(function(x,y){return x.ord-y.ord});return a}
+var AL=[];
+function updNd(){var n=alerts().length,e=document.querySelector('.nd');if(e)e.style.display=n?'block':'none'}
+function aMsg(al){var m=mem(al.mid),S=getSet(),what=al.kind==='sav'?'সঞ্চয়':'ঋণের লাভ';var tpl=al.t==='over'?S.msgOver:(al.kind==='sav'?S.msgSav:S.msgLoan);
+return String(tpl).replace(/\{নাম\}/g,m.name).replace(/\{সমিতি\}/g,S.shop).replace(/\{বিষয়\}/g,what).replace(/\{টাকা\}/g,fmtAmt(al.amt)).replace(/\{তারিখ\}/g,al.date?fD(iso(al.date)):'').replace(/\{দিন\}/g,toBn(Math.abs(al.days)))}
+function aTxt(al){var w=al.kind==='sav'?'সঞ্চয়':'ঋণের লাভ';if(al.t==='over')return w+' '+mon(al.amt)+' বাকি, '+toBn(al.days)+' দিন ধরে';return w+' '+mon(al.amt)+' জমার তারিখ '+fD(iso(al.date))+(al.days<=0?' (আজ)':' ('+toBn(al.days)+' দিন পরে)')}
+function openBell(){AL=alerts();var h='<div class="m-head"><h3>সতর্কতা ('+toBn(AL.length)+')</h3>'+xBtn('subModal')+'</div><div class="m-body">';
+if(!AL.length)h+='<p class="empty-msg">কোনো সতর্কতা নেই। '+toBn(getRem())+' দিনের মধ্যে কারও জমার সময় নেই।</p>';
+else{h+='<p class="st-note" style="margin-bottom:8px">লাল: বাকি আছে। হলুদ: জমার সময় কাছে এসেছে।</p>';AL.forEach(function(a,i){var m=mem(a.mid);h+='<div class="al-i '+(a.t==='over'?'over':'soon')+'"><div><strong class="t-name" onclick="oMD('+m.id+')">'+esc(m.name)+'</strong><div class="al-t">'+aTxt(a)+'</div></div><button class="mbtn mbtn-b" onclick="msgOpen('+m.id+',aMsg(AL['+i+']))"><i class="fas fa-comment-sms"></i> বার্তা</button></div>'})}
+h+='</div>';setM('subModal',h);openM('subModal')}
+
+/* ── বার্তা ── */
+function msgOpen(mid,text){var m=mem(mid);if(!m)return;
+if(!normPhone(m.phone)){toast('warn','এই সদস্যের মোবাইল নম্বর নেই। আগে নম্বর যোগ করুন');return}
+setM('sub2Modal','<div class="m-head"><h3>বার্তা: '+esc(m.name)+'</h3>'+xBtn('sub2Modal')+'</div><div class="m-body"><div class="fg"><label>মোবাইল: '+esc(m.phone)+' (লেখা বদলাতে পারেন)</label><textarea id="msgT" rows="6" style="width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;font:inherit">'+esc(text)+'</textarea></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\'sub2Modal\')">এখন নয়</button><button class="mbtn mbtn-b" onclick="sendMsg('+mid+',\'sms\')"><i class="fas fa-comment-sms"></i> SMS</button><button class="mbtn mbtn-gr" onclick="sendMsg('+mid+',\'wa\')"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ</button></div>');openM('sub2Modal')}
+function sendMsg(mid,ch){var m=mem(mid);if(!m)return;var t=val('msgT'),n=normPhone(m.phone);if(!t.trim()){toast('warn','মেসেজের লেখা দিন');return}
+if(ch==='wa'){window.open('https://wa.me/'+n+'?text='+encodeURIComponent(t),'_blank')}else{location.href='sms:+'+n+'?body='+encodeURIComponent(t)}
+closeM('sub2Modal')}
+function rcpt(m,det){var S=getSet();return String(S.msgRec).replace(/\{নাম\}/g,m.name).replace(/\{সমিতি\}/g,S.shop).replace(/\{তারিখ\}/g,fD(iso())).replace(/\{বিবরণ\}/g,det)}
+
+/* ── ছবি (ক্যামেরা): ডিভাইসে ও ক্লাউডে আলাদা জায়গায় ── */
+var IMGDB=null;
+function idb(){return new Promise(function(res,rej){if(IMGDB)return res(IMGDB);if(!window.indexedDB)return rej();var r=indexedDB.open('smtimg',1);r.onupgradeneeded=function(){r.result.createObjectStore('i')};r.onsuccess=function(){IMGDB=r.result;res(IMGDB)};r.onerror=function(){rej()}})}
+function idbGet(k){return idb().then(function(d){return new Promise(function(res){var q=d.transaction('i').objectStore('i').get(k);q.onsuccess=function(){res(q.result||null)};q.onerror=function(){res(null)}})}).catch(function(){return null})}
+function idbPut(k,v){return idb().then(function(d){return new Promise(function(res){var q=d.transaction('i','readwrite').objectStore('i').put(v,k);q.onsuccess=function(){res(true)};q.onerror=function(){res(false)}})}).catch(function(){return false})}
+function idbDel(k){return idb().then(function(d){return new Promise(function(res){var q=d.transaction('i','readwrite').objectStore('i').delete(k);q.onsuccess=function(){res(true)};q.onerror=function(){res(false)}})}).catch(function(){return false})}
+function idbPending(){return idb().then(function(d){return new Promise(function(res){var out=[],q=d.transaction('i').objectStore('i').openCursor();q.onsuccess=function(){var c=q.result;if(c){if(c.value&&c.value.p)out.push([c.key,c.value]);c.continue()}else res(out)};q.onerror=function(){res(out)}})}).catch(function(){return []})}
+function imgRef(key){var u=fbCur();return u&&fbDb?fbDb.collection('samity').doc(u.uid).collection('img').doc(key):null}
+function imgFlush(key,d){var r=imgRef(key);if(!r||navigator.onLine===false)return Promise.resolve(false);return r.set({d:d,t:Date.now()}).then(function(){return idbPut(key,{d:d})}).then(function(){return true},function(){return false})}
+function imgSave(key,d){return idbPut(key,{d:d,p:1}).then(function(){return imgFlush(key,d)})}
+function imgLoad(key){return idbGet(key).then(function(v){if(v&&v.d)return v.d;var r=imgRef(key);if(!r||navigator.onLine===false)return null;return r.get().then(function(s){if(s.exists&&s.data().d){idbPut(key,{d:s.data().d});return s.data().d}return null},function(){return null})})}
+function imgDrop(key){idbDel(key);var r=imgRef(key);if(r&&navigator.onLine!==false)r.delete().catch(function(){})}
+function imgFlushAll(){if(!lsGet('smtTok')||navigator.onLine===false)return;idbPending().then(function(l){l.forEach(function(x){imgFlush(x[0],x[1].d)})})}
+function shrink(file,max,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.width*s));c.height=Math.max(1,Math.round(im.height*s));c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.72))};im.onerror=function(){toast('err','ছবি পড়া যায়নি')};im.src=r.result};r.onerror=function(){toast('err','ছবি পড়া যায়নি')};r.readAsDataURL(file)}
+function capImg(cam,max,cb){var i=document.createElement('input');i.type='file';i.accept='image/*';if(cam)i.setAttribute('capture',cam);i.onchange=function(){var f=i.files&&i.files[0];if(f)shrink(f,max,cb)};i.click()}
+var PHL={p:['সদস্যের ছবি','user'],nf:['এনআইডি (সামনে)','environment'],nb:['এনআইডি (পেছনে)','environment']};
+function phKey(mid,s){return 'm'+mid+'_'+s}
+function phShoot(mid,s){capImg(PHL[s][1],s==='p'?640:1280,function(d){var m=mem(mid);if(!m)return;m.ph=m.ph||{};m.ph[s]=true;saveDB();imgSave(phKey(mid,s),d).then(function(ok){if(!ok&&navigator.onLine===false)toast('info','ছবি এই ফোনে রাখা হয়েছে, নেট এলে ক্লাউডে যাবে')});toast('ok','ছবি রাখা হয়েছে');oMD(mid)})}
+function phView(key,title,back){imgLoad(key).then(function(d){if(!d){toast('warn','ছবি পাওয়া যায়নি। ইন্টারনেট চালু করুন');return}setM('sub2Modal','<div class="m-head"><h3>'+esc(title)+'</h3>'+xBtn('sub2Modal')+'</div><div class="m-body" style="text-align:center"><img src="'+d+'" style="max-width:100%;border-radius:8px" alt="'+esc(title)+'"></div><div class="m-foot"><button class="mbtn mbtn-r" onclick="'+back.del+'"><i class="fas fa-trash"></i> মুছুন</button><button class="mbtn mbtn-gr" onclick="'+back.redo+'"><i class="fas fa-camera"></i> আবার তুলুন</button></div>');openM('sub2Modal')})}
+function phDel(mid,s){if(!confirm('ছবিটি মুছবেন?'))return;var m=mem(mid);if(m&&m.ph)delete m.ph[s];imgDrop(phKey(mid,s));saveDB();closeM('sub2Modal');oMD(mid)}
+function phOpen(mid,s){phView(phKey(mid,s),PHL[s][0],{del:'phDel('+mid+",'"+s+"')",redo:"closeM('sub2Modal');phShoot("+mid+",'"+s+"')"})}
+function phSlotHtml(m,s){var has=m.ph&&m.ph[s];return '<div class="ph-slot"><button type="button" class="ph-box'+(has?' has':'')+'" id="ph_'+s+'" onclick="'+(has?'phOpen':'phShoot')+'('+m.id+",'"+s+"')\">"+(has?'<span class="ph-ld">লোড হচ্ছে</span>':'<i class="fas fa-camera"></i>')+'</button><span class="ph-l">'+PHL[s][0]+'</span></div>'}
+function phFill(m){['p','nf','nb'].forEach(function(s){if(!(m.ph&&m.ph[s]))return;imgLoad(phKey(m.id,s)).then(function(d){var e=gid('ph_'+s);if(!e)return;if(d)e.innerHTML='<img src="'+d+'" alt="">';else e.innerHTML='<span class="ph-ld">নেট দরকার</span>'})})}
+function docShoot(lid){capImg('environment',1280,function(d){var l=loanOf(lid);if(!l)return;l.docs=(l.docs||0)+1;var key='l'+lid+'_'+l.docs;saveDB();imgSave(key,d);toast('ok','কাগজের ছবি রাখা হয়েছে');oLD(lid)})}
+function docView(lid,i){phView('l'+lid+'_'+i,'কাগজপত্র '+toBn(i),{del:'docDel('+lid+','+i+')',redo:"closeM('sub2Modal');docShoot("+lid+")"})}
+function docDel(lid,i){if(!confirm('ছবিটি মুছবেন?'))return;var l=loanOf(lid);if(!l)return;imgDrop('l'+lid+'_'+i);l.dx=l.dx||{};l.dx[i]=1;saveDB();closeM('sub2Modal');oLD(lid)}
+function docFill(l){for(var i=1;i<=(l.docs||0);i++){(function(i){if(l.dx&&l.dx[i])return;imgLoad('l'+l.id+'_'+i).then(function(d){var e=gid('dc_'+i);if(e)e.innerHTML=d?'<img src="'+d+'" alt="">':'<span class="ph-ld">নেট দরকার</span>'})})(i)}}
+
+/* ── সদস্য বাছাই ── */
+var MP={fn:null,cb:null};
+function mpHtml(){return '<div class="fg"><label>সদস্য</label><input id="mpQ" placeholder="নাম বা মোবাইল দিয়ে খুঁজুন" oninput="mpFill()" autocomplete="off"><select id="mpS" size="4" style="width:100%;margin-top:6px" onchange="mpChg()"></select></div>'}
+function mpFill(){var q=val('mpQ').toLowerCase(),s=gid('mpS');if(!s)return;var cur=s.value,l=DB.members.filter(function(m){return MP.fn(m)&&(m.name.toLowerCase().indexOf(q)>-1||String(m.phone).indexOf(q)>-1)});
+s.innerHTML=l.length?l.map(function(m){return '<option value="'+m.id+'">'+esc(m.name)+(m.phone?' — '+esc(m.phone):'')+'</option>'}).join(''):'<option value="">কোনো সদস্য নেই</option>';
+if(cur&&l.some(function(m){return String(m.id)===cur}))s.value=cur;else if(l.length===1){s.value=String(l[0].id);mpChg()}}
+function mpChg(){var v=+val('mpS');if(v&&MP.cb)MP.cb(v)}
+function mpInit(fn,cb){MP.fn=fn;MP.cb=cb;mpFill()}
+
+/* ═══════════════ ড্যাশবোর্ড ═══════════════ */
+function dxM(n){return mon(n)}
+function dxLine(l,v,o){o=o||{};return '<div class="dx-line'+(o.cls?' '+o.cls:'')+'"><span class="dx-l">'+l+'</span><i class="dx-fill"></i><span class="dx-v">'+v+'</span></div>'}
+function dxTag(c,t,v,sub,pg,ic){return '<button type="button" class="dx-tag '+c+'" onclick="showPage(\''+pg+'\')"><i class="fas '+ic+' dx-tag-ic" aria-hidden="true"></i><span class="dx-tag-t">'+t+'</span><span class="dx-tag-v">'+v+'</span><span class="dx-tag-s">'+sub+'</span></button>'}
+function toggleLedger(){var sh=gid('dxSheet'),hb=gid('dxHb');if(!sh||!hb)return;var c=!sh.classList.contains('closed');sh.classList.toggle('closed',c);hb.classList.toggle('closed',c);hb.setAttribute('aria-expanded',String(!c));lsSet('smtLedger',c?'0':'1')}
+function dayStats(ds){var r={sav:0,prof:0,prin:0,fine:0,loan:0,wd:0,ex:0};
+DB.savings.forEach(function(t){if(t.date!==ds)return;if(t.type==='deposit')r.sav+=t.amt;else if(t.type==='withdraw')r.wd+=t.amt});
+DB.loans.forEach(function(l){if(l.date===ds)r.loan+=l.amount;(l.pays||[]).forEach(function(p){if(p.date!==ds||p.via==='saving')return;r.prof+=p.profit||0;r.prin+=p.principal||0;r.fine+=p.fine||0})});
+DB.expenses.forEach(function(e){if(e.date===ds)r.ex+=e.amt});
+r.inc=rd(r.sav+r.prof+r.prin+r.fine);r.out=rd(r.loan+r.wd+r.ex);r.net=rd(r.inc-r.out);return r}
+function renderDash(){
+var T=iso(),t=dayStats(T),dt=new Date(),totS=0,totL=0,act=0;
+DB.members.forEach(function(m){totS+=mSav(m.id).bal;if(m.status==='active')act++});
+var Td=T0();DB.loans.forEach(function(l){totL+=lStat(l,Td).prin});
+var pc=t.net>=0?'var(--c-grn)':'var(--c-red)',open=lsGet('smtLedger')!=='0';
+var h='<div class="dx"><div class="dx-grid"><div class="dx-main">';
+h+='<div class="dx-acts"><button type="button" class="dx-btn dx-wide" onclick="openCol()"><i class="fas fa-hand-holding-dollar"></i> কিস্তি আদায়</button><button type="button" class="dx-btn" onclick="openNM()"><i class="fas fa-user-plus"></i> নতুন সদস্য</button><button type="button" class="dx-btn" onclick="openSD()"><i class="fas fa-piggy-bank"></i> সঞ্চয় জমা</button><button type="button" class="dx-btn" onclick="openNL()"><i class="fas fa-file-invoice-dollar"></i> নতুন ঋণ</button><button type="button" class="dx-btn" onclick="openEX()"><i class="fas fa-pen"></i> খরচ লিখুন</button></div>';
+h+='<div class="dx-tags">'+dxTag('red','মোট সঞ্চয়',dxM(totS),toBn(act)+' জন সদস্য','members','fa-piggy-bank')+dxTag('amb','ঋণ বাকি (আসল)',dxM(totL),toBn(DB.loans.filter(function(l){return lStat(l,Td).open}).length)+'টি চালু ঋণ','loans','fa-file-invoice-dollar')+'</div>';
+h+='<div class="dx-hbw"><span class="dx-hbands" aria-hidden="true"><i></i><i></i><i></i><i></i></span><button type="button" class="dx-hb'+(open?'':' closed')+'" id="dxHb" onclick="toggleLedger()" aria-expanded="'+open+'" aria-controls="dxSheet"><span><i class="fas fa-book-open"></i> আজকের হিসাব</span><span class="dx-chev"><i class="fas fa-chevron-down"></i></span></button></div>';
+h+='<section class="dx-sheet'+(open?'':' closed')+'" id="dxSheet" aria-label="আজকের হিসাব"><div class="dx-in">';
+h+='<div class="dx-head"><h2 class="dx-date">'+toBn(dt.getDate())+' '+MONTHS[dt.getMonth()]+'</h2><p class="dx-year">'+toBn(dt.getFullYear())+', '+WD[dt.getDay()]+'</p></div>';
+h+='<div class="dx-cols"><div class="dx-col"><h3>আদায়</h3>'+dxLine('সঞ্চয় জমা',dxM(t.sav))+dxLine('লাভ আদায়',dxM(t.prof))+dxLine('আসল আদায়',dxM(t.prin))+dxLine('জরিমানা',dxM(t.fine))+dxLine('মোট আদায়',dxM(t.inc),{cls:'tot'})+'</div>';
+h+='<div class="dx-col"><h3>প্রদান ও খরচ</h3>'+dxLine('ঋণ দেওয়া',dxM(t.loan))+dxLine('সঞ্চয় ফেরত',dxM(t.wd))+dxLine('খরচ',dxM(t.ex))+dxLine('মোট প্রদান',dxM(t.out),{cls:'tot'})+'</div></div>';
+h+='<div class="dx-bottom"><span>আজকের জের</span><strong style="color:'+pc+'">'+dxM(t.net)+'</strong></div>';
+h+='</div></section></div></div></div>';
+gid('pgDashboard').innerHTML=h;updNd()}
+
+/* ═══════════════ সদস্য ═══════════════ */
+var memTab='active';
+function initMem(){gid('pgMembers').innerHTML='<div class="srch-wrap"><i class="fas fa-search"></i><input class="srch" id="mS" placeholder="সদস্য খুঁজুন..." oninput="fMem()"></div><div class="st-seg" style="margin-bottom:10px"><button type="button" id="mtA" onclick="memTab=\'active\';fMem()">সক্রিয় সদস্য</button><button type="button" id="mtL" onclick="memTab=\'left\';fMem()">বাতিল সদস্য</button></div><div class="panel" style="margin-top:0"><div class="p-body" style="overflow-x:auto"><table><thead><tr><th>নাম</th><th>সঞ্চয়</th><th>ঋণ বাকি</th><th>বাকি তথ্য</th></tr></thead><tbody id="mTb"></tbody></table></div></div>';fMem()}
+function chips(m){var T=T0(),h='',s=sStat(m,T);if(s&&s.arr>0)h+='<span class="s-pill chip-r">সঞ্চয় '+mon(s.arr)+' · '+toBn(s.days)+' দিন</span> ';
+mLoans(m.id).forEach(function(l){var q=lStat(l,T);if(q.open&&q.arr>0)h+='<span class="s-pill chip-r">লাভ '+mon(q.arr)+' · '+toBn(q.days)+' দিন</span> ';if(q.open&&q.term>0)h+='<span class="s-pill chip-o">মেয়াদ শেষ · '+toBn(q.term)+' দিন</span> ';if(q.open&&q.sl>=30)h+='<span class="s-pill chip-y">'+toBn(q.sl)+' দিন জমা নেই</span> '});
+return h||'<span class="s-pill chip-g">ঠিক আছে</span>'}
+function fMem(){var f=val('mS').toLowerCase(),tb=gid('mTb');if(!tb)return;gid('mtA').className=memTab==='active'?'on':'';gid('mtL').className=memTab==='left'?'on':'';
+var l=DB.members.filter(function(m){return (memTab==='active'?m.status==='active':m.status!=='active')&&(m.name.toLowerCase().indexOf(f)>-1||String(m.phone).indexOf(f)>-1)});
+if(!l.length){tb.innerHTML='<tr><td colspan="4" class="empty-msg">কোনো সদস্য নেই</td></tr>';return}
+tb.innerHTML=l.map(function(m){var lb=mLoanBal(m.id);return '<tr><td><span class="t-name" onclick="oMD('+m.id+')">'+esc(m.name)+'</span><div class="al-t">'+esc(m.phone)+'</div></td><td class="t-num" style="color:var(--grn)">'+mon(mSav(m.id).bal)+'</td><td class="t-num" style="color:'+(lb>0?'var(--red)':'var(--tm)')+'">'+mon(lb)+'</td><td>'+(m.status==='active'?chips(m):'<span class="s-pill chip-y">বাতিল</span>')+'</td></tr>'}).join('')}
+function openNM(mid,host){host=host||'mainModal';var m=mid?mem(mid):null;m=m||{};
+setM(host,'<div class="m-head"><h3>'+(mid?'সদস্য সম্পাদনা':'নতুন সদস্য')+'</h3>'+xBtn(host)+'</div><div class="m-body"><div class="fg"><label>নাম</label><input id="nmN" value="'+esc(m.name||'')+'" placeholder="নাম লিখুন"></div><div class="fg"><label>মোবাইল</label><input id="nmP" value="'+esc(m.phone||'')+'" placeholder="01XXXXXXXXX" inputmode="tel"></div><div class="fg"><label>ঠিকানা</label><input id="nmA" value="'+esc(m.address||'')+'" placeholder="ঠিকানা"></div><div class="fg"><label>এনআইডি নম্বর</label><input id="nmI" value="'+esc(m.nid||'')+'" placeholder="এনআইডি নম্বর"></div><div class="fg"><label>ভর্তির তারিখ</label><input type="date" id="nmJ" value="'+(m.joinDate||iso())+'"></div><div class="fg"><label>মাসিক সঞ্চয় (টাকা)</label><input type="number" id="nmS" value="'+(m.saveAmt||'')+'" placeholder="0" min="0"></div><div class="fg"><label>মাসের কত তারিখে জমা দেবে (১-৩১)</label><input type="number" id="nmD" value="'+(m.saveDay||'')+'" placeholder="যেমন ৫" min="1" max="31"></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\''+host+'\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sNM('+(mid||0)+',\''+host+'\')"><i class="fas fa-save"></i> সংরক্ষণ</button></div>');openM(host)}
+function sNM(mid,host){var n=val('nmN').trim();if(!n){toast('warn','নাম দিন');return}var j=val('nmJ')||iso(),sd=Math.round(nv('nmD'));if(sd&&(sd<1||sd>31)){toast('warn','তারিখ ১ থেকে ৩১ এর মধ্যে দিন');return}
+if(!sd)sd=pIso(j).getDate();
+var p=val('nmP').trim();
+if(DB.members.some(function(x){return x.id!==mid&&x.name===n&&x.phone===p})){toast('err','এই নাম ও মোবাইলে সদস্য আছে');return}
+if(mid){var m=mem(mid);m.name=n;m.phone=p;m.address=val('nmA').trim();m.nid=val('nmI').trim();m.joinDate=j;m.saveAmt=nv('nmS');m.saveDay=sd;saveDB();closeM(host);if(gid('subModal').classList.contains('show'))oMD(mid);rf();toast('ok','আপডেট হয়েছে')}
+else{var id=nid('m');DB.members.push({id:id,name:n,phone:p,address:val('nmA').trim(),nid:val('nmI').trim(),joinDate:j,saveAmt:nv('nmS'),saveDay:sd,status:'active',ph:{}});saveDB();closeM(host);rf();toast('ok','সদস্য যোগ হয়েছে। এবার ছবি তুলুন');oMD(id)}}
+function oMD(id){var m=mem(id);if(!m)return;var T=T0(),sv=mSav(id),lb=mLoanBal(id),s=sStat(m,T);
+var h='<div class="m-head"><h3>'+esc(m.name)+(m.status==='active'?'':' <span class="s-pill chip-y">বাতিল</span>')+'</h3>'+xBtn('subModal')+'</div><div class="m-body">';
+h+='<div class="ph-row">'+phSlotHtml(m,'p')+phSlotHtml(m,'nf')+phSlotHtml(m,'nb')+'</div>';
+h+='<div class="cust-info-bar"><span>মোবাইল: <strong>'+esc(m.phone)+'</strong></span><span>ঠিকানা: <strong>'+esc(m.address)+'</strong></span><span>এনআইডি: <strong>'+esc(m.nid)+'</strong></span><span>ভর্তি: <strong>'+fD(m.joinDate)+'</strong></span></div>';
+h+='<div class="sum-stat" style="grid-template-columns:1fr 1fr"><div class="sum-stat-item"><div class="ss-val" style="color:var(--grn)">'+mon(sv.bal)+'</div><div class="ss-lbl">মোট সঞ্চয় (জমা '+mon(sv.dep)+')</div></div><div class="sum-stat-item"><div class="ss-val" style="color:'+(lb>0?'var(--red)':'var(--tm)')+'">'+mon(lb)+'</div><div class="ss-lbl">ঋণ বাকি (আসল)</div></div></div>';
+if(m.status==='active'){h+='<p class="st-note" style="margin-bottom:8px">মাসিক সঞ্চয় '+mon(m.saveAmt||0)+', প্রতি মাসের '+toBn(m.saveDay||'')+' তারিখে।'+(s&&s.arr>0?' <b style="color:var(--red)">বাকি '+mon(s.arr)+', '+toBn(s.days)+' দিন ধরে।</b>':'')+'</p>'}
+h+='<div class="mychips">'+chips(m)+'</div>';
+h+='<div class="action-btns" style="margin-top:12px"><button style="background:var(--grn)" onclick="openSD('+id+',\'sub2Modal\')"><i class="fas fa-piggy-bank"></i> সঞ্চয় জমা</button><button style="background:var(--blu)" onclick="openCol('+id+',\'sub2Modal\')"><i class="fas fa-hand-holding-dollar"></i> কিস্তি আদায়</button><button style="background:var(--blu)" onclick="openNL('+id+',\'sub2Modal\')"><i class="fas fa-file-invoice-dollar"></i> নতুন ঋণ</button><button style="background:var(--pur)" onclick="openSW('+id+',\'sub2Modal\')"><i class="fas fa-money-bill-transfer"></i> সঞ্চয় ফেরত</button><button style="background:var(--red)" onclick="memMsg('+id+')"><i class="fas fa-comment-sms"></i> বার্তা পাঠান</button><button style="background:var(--tm)" onclick="passbook('+id+')"><i class="fas fa-book"></i> পাসবুক</button></div>';
+var ls=mLoans(id);
+if(ls.length){h+='<h4 class="sec-h">ঋণ</h4><table><thead><tr><th>তারিখ</th><th>ঋণ</th><th>বাকি আসল</th><th></th></tr></thead><tbody>';ls.forEach(function(l){var q=lStat(l,T);h+='<tr><td>'+fD(l.date)+'</td><td class="t-num">'+mon(l.amount)+'</td><td class="t-num" style="color:'+(q.open?'var(--red)':'var(--grn)')+'">'+(q.open?mon(q.prin):'শোধ হয়েছে')+'</td><td><button class="mbtn mbtn-b" onclick="oLD('+l.id+')">বিস্তারিত</button></td></tr>'});h+='</tbody></table>'}
+var tx=DB.savings.filter(function(t){return t.mid===id}).slice(-8).reverse();
+if(tx.length){h+='<h4 class="sec-h">সাম্প্রতিক সঞ্চয় লেনদেন</h4><table><thead><tr><th>তারিখ</th><th>বিবরণ</th><th>টাকা</th><th></th></tr></thead><tbody>';tx.forEach(function(t){var lbl=t.type==='deposit'?'জমা':t.type==='withdraw'?'ফেরত'+(t.note?' ('+esc(t.note)+')':''):'ঋণে কাটা';h+='<tr><td>'+fD(t.date)+'</td><td>'+lbl+'</td><td class="t-num" style="color:'+(t.type==='deposit'?'var(--grn)':'var(--red)')+'">'+mon(t.amt)+'</td><td><button class="ib del" onclick="delSav('+t.id+','+id+')"><i class="fas fa-trash"></i></button></td></tr>'});h+='</tbody></table>'}
+h+='<div class="action-btns" style="margin-top:14px"><button style="background:var(--tm)" onclick="openNM('+id+',\'sub2Modal\')"><i class="fas fa-pen"></i> সম্পাদনা</button>'+(m.status==='active'?'<button style="background:var(--org)" onclick="openExit('+id+')"><i class="fas fa-door-open"></i> সদস্যপদ বাতিল</button>':'<button style="background:var(--grn)" onclick="reactMem('+id+')"><i class="fas fa-rotate-left"></i> আবার সক্রিয় করুন</button>')+'<button style="background:var(--red)" onclick="delMem('+id+')"><i class="fas fa-trash"></i> চিরতরে মুছুন</button></div>';
+h+='</div>';setM('subModal',h);openM('subModal');phFill(m)}
+function memMsg(id){var m=mem(id),T=T0(),al=null,s=sStat(m,T);
+if(s&&s.arr>0)al={mid:id,kind:'sav',t:'over',amt:s.arr,days:s.days};
+else{mLoans(id).forEach(function(l){var q=lStat(l,T);if(!al&&q.open&&q.arr>0)al={mid:id,kind:'loan',t:'over',amt:q.arr,days:q.days}})}
+if(!al&&s&&s.nin<=getRem())al={mid:id,kind:'sav',t:'soon',amt:s.amt,days:s.nin,date:s.nd};
+msgOpen(id,al?aMsg(al):('আসসালামু আলাইকুম '+m.name+'। '+getSet().shop+' থেকে জানাচ্ছি।'))}
+function reactMem(id){var m=mem(id);if(m){m.status='active';delete m.leftDate;saveDB();oMD(id);rf();toast('ok','সদস্য আবার সক্রিয় হয়েছে')}}
+function delSav(tid,mid){if(!confirm('এই লেনদেন মুছবেন?'))return;var i=DB.savings.findIndex(function(t){return t.id===tid});if(i>-1)DB.savings.splice(i,1);saveDB();oMD(mid);rf();toast('ok','মুছে ফেলা হয়েছে')}
+function delMem(id){var m=mem(id);if(!m)return;if(!confirm('"'+m.name+'" কে চিরতরে মুছবেন? তার সব সঞ্চয়, ঋণ ও ছবি মুছে যাবে।\n\nসাধারণত "সদস্যপদ বাতিল" ব্যবহার করা ভালো, তাতে হিসাবের ইতিহাস থাকে।'))return;
+if(!confirm('সত্যিই চিরতরে মুছবেন? এটা আর ফেরানো যাবে না।'))return;
+['p','nf','nb'].forEach(function(s){imgDrop(phKey(id,s))});mLoans(id).forEach(function(l){for(var i=1;i<=(l.docs||0);i++)imgDrop('l'+l.id+'_'+i)});
+DB.loans=DB.loans.filter(function(l){return l.mid!==id});DB.savings=DB.savings.filter(function(t){return t.mid!==id});DB.members=DB.members.filter(function(x){return x.id!==id});
+saveDB();closeM('subModal');closeM('sub2Modal');rf();toast('ok','সদস্য মুছে ফেলা হয়েছে')}
+
+/* ── সদস্যপদ বাতিল: সঞ্চয় ফেরত ও ঋণ পরিশোধ ── */
+function exitCalc(id){var T=T0(),sv=mSav(id).bal,prin=0,arr=0;mLoans(id).forEach(function(l){var q=lStat(l,T);if(q.open){prin+=q.prin;arr+=q.arr}});prin=rd(prin);arr=rd(arr);var D=rd(prin+arr),adj=Math.min(sv,D);return{sv:sv,prin:prin,arr:arr,D:D,adj:adj,refund:rd(sv-adj),left:rd(D-adj)}}
+function openExit(id){var m=mem(id),c=exitCalc(id);
+var h='<div class="m-head"><h3>সদস্যপদ বাতিল: '+esc(m.name)+'</h3>'+xBtn('sub2Modal')+'</div><div class="m-body"><div class="calc-row"><span>মোট সঞ্চয়</span><span class="t-num" style="color:var(--grn)">'+mon(c.sv)+'</span></div><div class="calc-row"><span>ঋণের বাকি আসল</span><span class="t-num">'+mon(c.prin)+'</span></div><div class="calc-row"><span>বাকি লাভ</span><span class="t-num">'+mon(c.arr)+'</span></div><div class="calc-row"><span>সঞ্চয় থেকে ঋণে কাটা যাবে</span><span class="t-num">'+mon(c.adj)+'</span></div>';
+if(c.left>0)h+='<div class="calc-row due"><span>তবুও ঋণ বাকি থাকবে</span><span>'+mon(c.left)+'</span></div><p class="st-note" style="margin-top:8px">সঞ্চয় ঋণের চেয়ে কম। বাকি টাকা পরিশোধ না হলে "বাকিসহ বাতিল" করলে ঋণ খোলা থাকবে, ঋণ তালিকায় দেখা যাবে।</p>';
+else h+='<div class="calc-row" style="font-weight:700"><span>ফেরত দিতে হবে</span><span class="t-num" style="color:var(--grn)">'+mon(c.refund)+'</span></div>';
+h+='</div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\'sub2Modal\')">থাক</button><button class="mbtn mbtn-r" onclick="doExit('+id+')"><i class="fas fa-door-open"></i> '+(c.left>0?'বাকিসহ বাতিল করুন':'কেটে ফেরত দিয়ে বাতিল করুন')+'</button></div>';
+setM('sub2Modal',h);openM('sub2Modal')}
+function doExit(id){var m=mem(id),c=exitCalc(id),T=T0(),td=iso();if(c.left>0&&!confirm('ঋণ '+mon(c.left)+' বাকি থাকবে। তবুও সদস্যপদ বাতিল করবেন?'))return;
+var rem=c.adj;
+if(rem>0){mLoans(id).forEach(function(l){if(rem<=0)return;var q=lStat(l,T);if(!q.open)return;
+for(var k=1;k<720&&lDue(l,k)<=T&&rem>0;k++){var need=rd(lPD(l,k)-lPP(l,k));if(need>0.004){var x=Math.min(need,rem);l.pays=l.pays||[];l.pays.push({id:nid('p'),date:td,k:k,principal:0,profit:rd(x),fine:0,via:'saving'});rem=rd(rem-x)}}
+if(rem>0){var q2=lStat(l,T),x2=Math.min(q2.prin,rem),kk=Math.max(1,q2.nk-1);if(x2>0){l.pays.push({id:nid('p'),date:td,k:kk,principal:rd(x2),profit:0,fine:0,via:'saving'});rem=rd(rem-x2)}}});
+DB.savings.push({id:nid('s'),mid:id,date:td,amt:rd(c.adj-rem),type:'loanadj'})}
+var rf2=mSav(id).bal;if(rf2>0.004)DB.savings.push({id:nid('s'),mid:id,date:td,amt:rf2,type:'withdraw',note:'সদস্যপদ বাতিলে ফেরত'});
+m.status='left';m.leftDate=td;saveDB();closeM('sub2Modal');oMD(id);rf();toast('ok','সদস্যপদ বাতিল হয়েছে'+(rf2>0.004?'। ফেরত '+mon(rf2):''))}
+
+/* ═══════════════ সঞ্চয় জমা ও ফেরত ═══════════════ */
+function openSD(mid,host){host=host||'mainModal';
+setM(host,'<div class="m-head"><h3>সঞ্চয় জমা</h3>'+xBtn(host)+'</div><div class="m-body">'+(mid?'<p style="margin-bottom:10px;color:var(--ts)">সদস্য: <strong>'+esc(mem(mid).name)+'</strong></p>':mpHtml())+'<div id="sdI" class="st-note" style="margin-bottom:8px"></div><div class="fg"><label>তারিখ</label><input type="date" id="sdD" value="'+iso()+'"></div><div class="fg"><label>জমার পরিমাণ (টাকা)</label><input type="number" id="sdA" placeholder="0" min="0"></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\''+host+'\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sSD(\''+host+'\')"><i class="fas fa-save"></i> জমা নিন</button></div>');openM(host);
+window.SDM=mid||0;var info=function(id){SDM=id;var m=mem(id),s=sStat(m,T0());gid('sdI').innerHTML='মাসিক সঞ্চয় '+mon(m.saveAmt||0)+(s&&s.arr>0?', <b style="color:var(--red)">বাকি '+mon(s.arr)+' ('+toBn(s.days)+' দিন)</b>':'');if(!val('sdA')&&m.saveAmt)gid('sdA').value=(s&&s.arr>0)?s.arr:m.saveAmt};
+if(mid)info(mid);else mpInit(function(m){return m.status==='active'},info)}
+function sSD(host){var id=SDM,a=nv('sdA');if(!id){toast('warn','সদস্য বেছে নিন');return}if(a<=0){toast('warn','পরিমাণ দিন');return}var d=val('sdD')||iso();
+DB.savings.push({id:nid('s'),mid:id,date:d,amt:a,type:'deposit'});saveDB();closeM(host);if(gid('subModal').classList.contains('show'))oMD(id);rf();toast('ok','সঞ্চয় জমা হয়েছে');
+var m=mem(id);if(normPhone(m.phone))setTimeout(function(){msgOpen(id,rcpt(m,'সঞ্চয় জমা: ৳ '+fmtAmt(a)+'\nমোট সঞ্চয়: ৳ '+fmtAmt(mSav(id).bal)))},350)}
+function openSW(mid,host){host=host||'mainModal';var m=mem(mid),b=mSav(mid).bal;
+setM(host,'<div class="m-head"><h3>সঞ্চয় ফেরত</h3>'+xBtn(host)+'</div><div class="m-body"><p style="margin-bottom:10px;color:var(--ts)">সদস্য: <strong>'+esc(m.name)+'</strong> | মোট সঞ্চয়: <strong>'+mon(b)+'</strong></p><div class="fg"><label>তারিখ</label><input type="date" id="swD" value="'+iso()+'"></div><div class="fg"><label>ফেরতের পরিমাণ (টাকা)</label><input type="number" id="swA" placeholder="0" min="0"></div><div class="fg"><label>কারণ (ঐচ্ছিক)</label><input id="swN" placeholder="কারণ"></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\''+host+'\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sSW('+mid+',\''+host+'\')"><i class="fas fa-save"></i> সংরক্ষণ</button></div>');openM(host)}
+function sSW(mid,host){var a=nv('swA'),b=mSav(mid).bal;if(a<=0){toast('warn','পরিমাণ দিন');return}if(a>b+0.004){toast('err','সঞ্চয়ের চেয়ে বেশি ফেরত দেওয়া যাবে না');return}
+DB.savings.push({id:nid('s'),mid:mid,date:val('swD')||iso(),amt:a,type:'withdraw',note:val('swN').trim()});saveDB();closeM(host);if(gid('subModal').classList.contains('show'))oMD(mid);rf();toast('ok','সঞ্চয় ফেরত লেখা হয়েছে')}
+
+/* ═══════════════ ঋণ ═══════════════ */
+var loanTab='open';
+function initLoans(){gid('pgLoans').innerHTML='<div class="st-seg" style="margin-bottom:10px"><button type="button" id="ltO" onclick="loanTab=\'open\';fLoans()">চালু ঋণ</button><button type="button" id="ltC" onclick="loanTab=\'closed\';fLoans()">শোধ হয়েছে</button></div><div class="panel" style="margin-top:0"><div class="p-body" style="overflow-x:auto"><table><thead><tr><th>সদস্য</th><th>ঋণ</th><th>বাকি আসল</th><th>লাভ বাকি</th><th>শেষ জমা</th></tr></thead><tbody id="lTb"></tbody></table></div></div>';fLoans()}
+function fLoans(){var tb=gid('lTb');if(!tb)return;gid('ltO').className=loanTab==='open'?'on':'';gid('ltC').className=loanTab==='closed'?'on':'';var T=T0();
+var l=DB.loans.filter(function(x){return lStat(x,T).open===(loanTab==='open')&&mem(x.mid)});
+if(!l.length){tb.innerHTML='<tr><td colspan="5" class="empty-msg">কোনো ঋণ নেই</td></tr>';return}
+tb.innerHTML=l.map(function(x){var q=lStat(x,T),m=mem(x.mid);return '<tr><td><span class="t-name" onclick="oLD('+x.id+')">'+esc(m.name)+'</span><div class="al-t">'+fD(x.date)+(m.status!=='active'?' · বাতিল সদস্য':'')+'</div></td><td class="t-num">'+mon(x.amount)+'</td><td class="t-num" style="color:var(--red)">'+mon(q.prin)+'</td><td>'+(q.arr>0?'<span class="s-pill chip-r">'+mon(q.arr)+' · '+toBn(q.days)+' দিন</span>':'<span class="s-pill chip-g">নেই</span>')+'</td><td class="al-t">'+(q.open?(q.last?toBn(q.sl)+' দিন আগে':'এখনো জমা নেই'):'')+'</td></tr>'}).join('')}
+function openNL(mid,host){host=host||'mainModal';
+setM(host,'<div class="m-head"><h3>নতুন ঋণ</h3>'+xBtn(host)+'</div><div class="m-body">'+(mid?'<p style="margin-bottom:10px;color:var(--ts)">সদস্য: <strong>'+esc(mem(mid).name)+'</strong></p>':mpHtml())+'<div class="fg"><label>ঋণ দেওয়ার তারিখ</label><input type="date" id="nlD" value="'+iso()+'"></div><div class="fg"><label>ঋণের পরিমাণ (টাকা)</label><input type="number" id="nlA" placeholder="0" min="0"></div><div class="fg"><label>মাসিক লাভের হার (%) — বাকি আসলের ওপর</label><input type="number" id="nlR" placeholder="যেমন ১০" min="0" step="0.01"></div><div class="fg"><label>মেয়াদ (কত মাস, ঐচ্ছিক)</label><input type="number" id="nlM" placeholder="যেমন ১০" min="0"></div><div class="fg"><label>ঋণের উদ্দেশ্য</label><input id="nlU" placeholder="কী কাজে নিচ্ছে"></div><div class="fg"><label>জামিনদারের নাম</label><input id="nlGN" placeholder="নাম"></div><div class="fg"><label>জামিনদারের মোবাইল</label><input id="nlGP" placeholder="01XXXXXXXXX" inputmode="tel"></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\''+host+'\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sNL(\''+host+'\')"><i class="fas fa-save"></i> ঋণ দিন</button></div>');openM(host);
+window.NLM=mid||0;if(!mid)mpInit(function(m){return m.status==='active'},function(id){NLM=id})}
+function sNL(host){var id=NLM,a=nv('nlA');if(!id){toast('warn','সদস্য বেছে নিন');return}if(a<=0){toast('warn','ঋণের পরিমাণ দিন');return}
+var lid=nid('l');DB.loans.push({id:lid,mid:id,date:val('nlD')||iso(),amount:a,rate:nv('nlR'),months:Math.round(nv('nlM')),purpose:val('nlU').trim(),gName:val('nlGN').trim(),gPhone:val('nlGP').trim(),pays:[],docs:0});
+saveDB();closeM(host);if(gid('subModal').classList.contains('show'))closeM('subModal');rf();toast('ok','ঋণ লেখা হয়েছে। এবার কাগজপত্রের ছবি তুলুন');oLD(lid)}
+function oLD(lid){var l=loanOf(lid);if(!l)return;var m=mem(l.mid)||{name:'?'},T=T0(),q=lStat(l,T);
+var h='<div class="m-head"><h3>ঋণ: '+esc(m.name)+'</h3>'+xBtn('subModal')+'</div><div class="m-body">';
+h+='<div class="calc-row"><span>ঋণ ('+fD(l.date)+')</span><span class="t-num">'+mon(l.amount)+'</span></div><div class="calc-row"><span>মাসিক লাভের হার</span><span class="t-num">'+toBn(l.rate||0)+'%</span></div><div class="calc-row"><span>আসল শোধ হয়েছে</span><span class="t-num" style="color:var(--grn)">'+mon(q.paid.prin)+'</span></div><div class="calc-row"><span>লাভ জমা হয়েছে</span><span class="t-num" style="color:var(--grn)">'+mon(q.paid.prof)+'</span></div>'+(q.paid.fine?'<div class="calc-row"><span>জরিমানা জমা</span><span class="t-num">'+mon(q.paid.fine)+'</span></div>':'')+'<div class="calc-row due"><span>বাকি আসল</span><span>'+mon(q.prin)+'</span></div>';
+if(q.open){h+='<div class="calc-row"><span>এই মাসের লাভ (পরের কিস্তি '+fD(iso(q.nd))+')</span><span class="t-num">'+mon(q.nAmt)+'</span></div>';if(q.arr>0)h+='<div class="calc-row due"><span>লাভ বাকি ('+toBn(q.days)+' দিন ধরে)</span><span>'+mon(q.arr)+'</span></div>';h+='<div class="calc-row"><span>শেষ জমা</span><span>'+(q.last?toBn(q.sl)+' দিন আগে':'এখনো জমা নেই ('+toBn(q.sl)+' দিন আগে ঋণ দেওয়া)')+'</span></div>';if(q.term>0)h+='<div class="calc-row due"><span>মেয়াদ শেষ হয়েছে</span><span>'+toBn(q.term)+' দিন আগে</span></div>'}
+if(l.purpose)h+='<div class="calc-row"><span>উদ্দেশ্য</span><span>'+esc(l.purpose)+'</span></div>';
+if(l.gName||l.gPhone)h+='<div class="calc-row"><span>জামিনদার</span><span>'+esc(l.gName)+' '+esc(l.gPhone)+'</span></div>';
+if(+l.months>0)h+='<div class="calc-row"><span>মেয়াদ</span><span>'+toBn(l.months)+' মাস</span></div>';
+if(q.open)h+='<div class="action-btns" style="margin-top:12px"><button style="background:var(--blu)" onclick="openCol('+l.mid+',\'sub2Modal\','+l.id+')"><i class="fas fa-hand-holding-dollar"></i> কিস্তি আদায়</button></div>';
+h+='<h4 class="sec-h">কাগজপত্রের ছবি</h4><div class="ph-row" id="dcRow">';for(var i=1;i<=(l.docs||0);i++){if(l.dx&&l.dx[i])continue;h+='<div class="ph-slot"><button type="button" class="ph-box has" id="dc_'+i+'" onclick="docView('+l.id+','+i+')"><span class="ph-ld">লোড হচ্ছে</span></button><span class="ph-l">কাগজ '+toBn(i)+'</span></div>'}
+h+='<div class="ph-slot"><button type="button" class="ph-box" onclick="docShoot('+l.id+')"><i class="fas fa-camera"></i></button><span class="ph-l">ছবি যোগ করুন</span></div></div>';
+if((l.pays||[]).length){h+='<h4 class="sec-h">জমার তালিকা</h4><table><thead><tr><th>তারিখ</th><th>লাভ</th><th>আসল</th><th>জরিমানা</th><th></th></tr></thead><tbody>';l.pays.slice().reverse().forEach(function(p){h+='<tr><td>'+fD(p.date)+(p.via==='saving'?'<div class="al-t">সঞ্চয় থেকে</div>':'')+'</td><td class="t-num">'+mon(p.profit||0)+'</td><td class="t-num">'+mon(p.principal||0)+'</td><td class="t-num">'+mon(p.fine||0)+'</td><td><button class="ib del" onclick="delPay('+l.id+','+p.id+')"><i class="fas fa-trash"></i></button></td></tr>'});h+='</tbody></table>'}
+h+='<div class="action-btns" style="margin-top:14px"><button style="background:var(--red)" onclick="delLoan('+l.id+')"><i class="fas fa-trash"></i> ঋণ মুছুন</button></div></div>';
+setM('subModal',h);openM('subModal');docFill(l)}
+function delPay(lid,pid){if(!confirm('এই জমা মুছবেন? এতে লাভ ও বাকির হিসাব বদলে যাবে।'))return;var l=loanOf(lid);if(!l)return;l.pays=l.pays.filter(function(p){return p.id!==pid});saveDB();oLD(lid);rf();toast('ok','মুছে ফেলা হয়েছে')}
+function delLoan(lid){var l=loanOf(lid);if(!l)return;if(!confirm('এই ঋণ ও এর সব জমার হিসাব মুছবেন?'))return;if(!confirm('সত্যিই মুছবেন? এটা ফেরানো যাবে না।'))return;for(var i=1;i<=(l.docs||0);i++)imgDrop('l'+lid+'_'+i);DB.loans=DB.loans.filter(function(x){return x.id!==lid});saveDB();closeM('subModal');rf();toast('ok','ঋণ মুছে ফেলা হয়েছে')}
+
+/* ── কিস্তি আদায় ── */
+var COL={};
+function openCol(mid,host,lid){host=host||'mainModal';COL={host:host,mid:mid||0,lid:lid||0};
+setM(host,'<div class="m-head"><h3>কিস্তি আদায়</h3>'+xBtn(host)+'</div><div class="m-body">'+(mid?'<p style="margin-bottom:10px;color:var(--ts)">সদস্য: <strong>'+esc(mem(mid).name)+'</strong></p>':mpHtml())+'<div id="colB"></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\''+host+'\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sCol()"><i class="fas fa-save"></i> জমা নিন</button></div>');openM(host);
+if(mid)colRender();else mpInit(function(m){var T=T0();return mLoans(m.id).some(function(l){return lStat(l,T).open})},function(id){COL.mid=id;COL.lid=0;colRender()})}
+function colRender(){var T=T0(),ls=mLoans(COL.mid).filter(function(l){return lStat(l,T).open}),b=gid('colB');if(!b)return;
+if(!ls.length){b.innerHTML='<p class="empty-msg">এই সদস্যের কোনো চালু ঋণ নেই</p>';COL.lid=0;return}
+if(!COL.lid||!ls.some(function(l){return l.id===COL.lid}))COL.lid=ls[0].id;
+var l=loanOf(COL.lid),q=lStat(l,T),k=defK(l);COL.k=k;var due=lPD(l,k),paid=lPP(l,k),need=Math.max(0,rd(due-paid));
+var h='';if(ls.length>1)h+='<div class="fg"><label>কোন ঋণ</label><select id="colL" onchange="COL.lid=+this.value;colRender()">'+ls.map(function(x){return '<option value="'+x.id+'"'+(x.id===COL.lid?' selected':'')+'>'+fD(x.date)+' — ৳ '+fmtAmt(x.amount)+'</option>'}).join('')+'</select></div>';
+h+='<div class="calc-row"><span>বাকি আসল</span><span class="t-num">'+mon(q.prin)+'</span></div><div class="calc-row"><span>'+toBn(k)+' নম্বর মাসের লাভ ('+toBn(l.rate||0)+'% × '+mon(lBefore(l,k))+')</span><span class="t-num">'+mon(due)+'</span></div>'+(paid>0?'<div class="calc-row"><span>এই মাসে আগে জমা</span><span class="t-num">'+mon(paid)+'</span></div>':'')+(q.arr>0?'<div class="calc-row due"><span>মোট লাভ বাকি ('+toBn(q.days)+' দিন ধরে)</span><span>'+mon(q.arr)+'</span></div>':'')+'<div class="fg" style="margin-top:12px"><label>তারিখ</label><input type="date" id="colD" value="'+iso()+'"></div><div class="fg"><label>লাভ জমা</label><input type="number" id="colP" value="'+(need||'')+'" min="0" oninput="colTot()"></div><div class="fg"><label>আসল জমা</label><input type="number" id="colR" placeholder="0" min="0" oninput="colTot()"></div><div class="fg"><label>জরিমানা (ঐচ্ছিক)</label><input type="number" id="colF" placeholder="0" min="0" oninput="colTot()"></div><div class="calc-row" style="font-weight:700"><span>মোট জমা</span><span id="colT" class="t-num"></span></div>';
+b.innerHTML=h;colTot()}
+function colTot(){var e=gid('colT');if(e)e.textContent=mon(nv('colP')+nv('colR')+nv('colF'))}
+function sCol(){var l=loanOf(COL.lid);if(!l){toast('warn','সদস্য ও ঋণ বেছে নিন');return}var p=nv('colP'),r=nv('colR'),f=nv('colF'),q=lStat(l,T0());
+if(p+r+f<=0){toast('warn','টাকার পরিমাণ দিন');return}if(r>q.prin+0.004){toast('err','আসল জমা বাকি আসলের ('+mon(q.prin)+') চেয়ে বেশি হতে পারে না');return}
+l.pays=l.pays||[];l.pays.push({id:nid('p'),date:val('colD')||iso(),k:COL.k||1,principal:r,profit:p,fine:f});saveDB();var mid=l.mid,host=COL.host,tot=p+r+f;closeM(host);if(gid('subModal').classList.contains('show'))oLD(l.id);rf();toast('ok','কিস্তি জমা হয়েছে');
+var m=mem(mid);if(m&&normPhone(m.phone))setTimeout(function(){var det='লাভ: ৳ '+fmtAmt(p)+(r?'\nআসল: ৳ '+fmtAmt(r):'')+(f?'\nজরিমানা: ৳ '+fmtAmt(f):'')+'\nমোট জমা: ৳ '+fmtAmt(tot)+'\nবাকি আসল: ৳ '+fmtAmt(lStat(loanOf(l.id),T0()).prin);msgOpen(mid,rcpt(m,det))},350)}
+
+/* ═══════════════ খরচ ═══════════════ */
+var EXC=['অফিস','বেতন','যাতায়াত','আপ্যায়ন','মেরামত','অন্যান্য'];
+function initExp(){var T=new Date(),mk=iso(T).slice(0,7),tot=0;DB.expenses.forEach(function(e){if(String(e.date).slice(0,7)===mk)tot+=e.amt});
+gid('pgExpenses').innerHTML='<div class="sum-stat" style="grid-template-columns:1fr 1fr"><div class="sum-stat-item"><div class="ss-val" style="color:var(--red)">'+mon(tot)+'</div><div class="ss-lbl">এই মাসের খরচ</div></div><div class="sum-stat-item"><button class="mbtn mbtn-gr" style="padding:12px 18px;font-size:14px" onclick="openEX()"><i class="fas fa-plus"></i> খরচ লিখুন</button></div></div><div class="panel" style="margin-top:0"><div class="p-body" style="overflow-x:auto"><table><thead><tr><th>তারিখ</th><th>কারণ</th><th>বিভাগ</th><th>টাকা</th><th></th></tr></thead><tbody id="eTb"></tbody></table></div></div>';
+var l=DB.expenses.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.id-a.id}).slice(0,150),tb=gid('eTb');
+tb.innerHTML=l.length?l.map(function(e){return '<tr><td>'+fD(e.date)+'</td><td>'+esc(e.reason)+'</td><td>'+esc(e.cat)+'</td><td class="t-num" style="color:var(--red)">'+mon(e.amt)+'</td><td><button class="ib edit" onclick="openEX('+e.id+')"><i class="fas fa-pen"></i></button><button class="ib del" onclick="delEX('+e.id+')"><i class="fas fa-trash"></i></button></td></tr>'}).join(''):'<tr><td colspan="5" class="empty-msg">কোনো খরচ লেখা নেই</td></tr>'}
+function openEX(id){var e=id?DB.expenses.find(function(x){return x.id===id}):null;e=e||{};
+setM('mainModal','<div class="m-head"><h3>'+(id?'খরচ সম্পাদনা':'খরচ লিখুন')+'</h3>'+xBtn('mainModal')+'</div><div class="m-body"><div class="fg"><label>তারিখ</label><input type="date" id="exD" value="'+(e.date||iso())+'"></div><div class="fg"><label>টাকা</label><input type="number" id="exA" value="'+(e.amt||'')+'" placeholder="0" min="0"></div><div class="fg"><label>কী কারণে খরচ হলো</label><input id="exR" value="'+esc(e.reason||'')+'" placeholder="কারণ লিখুন"></div><div class="fg"><label>বিভাগ</label><select id="exC">'+EXC.map(function(c){return '<option'+(c===e.cat?' selected':'')+'>'+c+'</option>'}).join('')+'</select></div></div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\'mainModal\')">বাতিল</button><button class="mbtn mbtn-gr" onclick="sEX('+(id||0)+')"><i class="fas fa-save"></i> সংরক্ষণ</button></div>');openM('mainModal')}
+function sEX(id){var a=nv('exA'),r=val('exR').trim();if(a<=0){toast('warn','টাকা দিন');return}if(!r){toast('warn','কারণ লিখুন');return}
+if(id){var e=DB.expenses.find(function(x){return x.id===id});if(e){e.date=val('exD')||iso();e.amt=a;e.reason=r;e.cat=val('exC')}}else DB.expenses.push({id:nid('e'),date:val('exD')||iso(),amt:a,reason:r,cat:val('exC')});
+saveDB();closeM('mainModal');rf();toast('ok','খরচ সংরক্ষিত হয়েছে')}
+function delEX(id){if(!confirm('এই খরচ মুছবেন?'))return;DB.expenses=DB.expenses.filter(function(x){return x.id!==id});saveDB();rf();toast('ok','মুছে ফেলা হয়েছে')}
+
+/* ═══════════════ পাসবুক ═══════════════ */
+function passbook(id){var m=mem(id),S=getSet();var h='<div class="m-head"><h3>পাসবুক: '+esc(m.name)+'</h3>'+xBtn('subModal')+'</div><div class="m-body"><p style="margin-bottom:6px"><strong>'+esc(S.shop)+'</strong> | মোবাইল: '+esc(m.phone)+' | ভর্তি: '+fD(m.joinDate)+'</p><h4 class="sec-h">সঞ্চয়</h4>';
+var tx=DB.savings.filter(function(t){return t.mid===id}).sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:a.id-b.id}),bal=0;
+if(!tx.length)h+='<p class="empty-msg">কোনো লেনদেন নেই</p>';else{h+='<table><thead><tr><th>তারিখ</th><th>বিবরণ</th><th>জমা</th><th>ফেরত/কাটা</th><th>জের</th></tr></thead><tbody>';tx.forEach(function(t){var inn=t.type==='deposit';bal+=inn?t.amt:-t.amt;h+='<tr><td>'+fD(t.date)+'</td><td>'+(inn?'জমা':t.type==='withdraw'?'ফেরত':'ঋণে কাটা')+'</td><td class="t-num">'+(inn?mon(t.amt):'')+'</td><td class="t-num">'+(inn?'':mon(t.amt))+'</td><td class="t-num">'+mon(bal)+'</td></tr>'});h+='</tbody></table>'}
+mLoans(id).forEach(function(l){var left=l.amount;h+='<h4 class="sec-h">ঋণ '+mon(l.amount)+' ('+fD(l.date)+'), মাসিক লাভ '+toBn(l.rate||0)+'%</h4>';if(!(l.pays||[]).length)h+='<p class="empty-msg">এখনো জমা নেই</p>';else{h+='<table><thead><tr><th>তারিখ</th><th>লাভ</th><th>আসল</th><th>জরিমানা</th><th>বাকি আসল</th></tr></thead><tbody>';l.pays.slice().sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:a.id-b.id}).forEach(function(p){left=rd(left-(p.principal||0));h+='<tr><td>'+fD(p.date)+'</td><td class="t-num">'+mon(p.profit||0)+'</td><td class="t-num">'+mon(p.principal||0)+'</td><td class="t-num">'+mon(p.fine||0)+'</td><td class="t-num">'+mon(left)+'</td></tr>'});h+='</tbody></table>'}});
+h+='</div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\'subModal\')">বন্ধ</button><button class="mbtn mbtn-b" onclick="printPB()"><i class="fas fa-print"></i> ছাপুন / PDF</button></div>';
+setM('subModal',h);openM('subModal')}
+function printPB(){document.body.classList.add('prn');setTimeout(function(){try{window.print()}catch(e){}setTimeout(function(){document.body.classList.remove('prn')},500)},100)}
+
+/* ═══════════════ রিপোর্ট ═══════════════ */
+function initSUM(){var now=new Date(),cm=now.getMonth(),cy=now.getFullYear(),mo='',yo='';for(var i=0;i<12;i++)mo+='<option value="'+i+'"'+(i===cm?' selected':'')+'>'+MONTHS[i]+'</option>';for(var y=cy-3;y<=cy+1;y++)yo+='<option value="'+y+'"'+(y===cy?' selected':'')+'>'+toBn(y)+'</option>';
+gid('pgSummary').innerHTML='<div class="st-row" style="gap:8px;margin-bottom:12px"><select id="sumM" onchange="renderSUM()">'+mo+'</select><select id="sumY" onchange="renderSUM()">'+yo+'</select></div><div id="sumB"></div>';renderSUM()}
+function renderSUM(){var m=+val('sumM'),y=+val('sumY'),mk=y+'-'+('0'+(m+1)).slice(-2),r={sav:0,prof:0,prin:0,fine:0,loan:0,wd:0,ex:0};
+DB.savings.forEach(function(t){if(String(t.date).slice(0,7)!==mk)return;if(t.type==='deposit')r.sav+=t.amt;else if(t.type==='withdraw')r.wd+=t.amt});
+DB.loans.forEach(function(l){if(String(l.date).slice(0,7)===mk)r.loan+=l.amount;(l.pays||[]).forEach(function(p){if(String(p.date).slice(0,7)!==mk||p.via==='saving')return;r.prof+=p.profit||0;r.prin+=p.principal||0;r.fine+=p.fine||0})});
+DB.expenses.forEach(function(e){if(String(e.date).slice(0,7)===mk)r.ex+=e.amt});
+var inn=rd(r.sav+r.prof+r.prin+r.fine),out=rd(r.loan+r.wd+r.ex),net=rd(inn-out);
+var c=function(l,v,col){return '<div class="sum-stat-item"><div class="ss-val" style="color:'+(col||'var(--tp)')+'">'+mon(v)+'</div><div class="ss-lbl">'+l+'</div></div>'};
+var h='<div class="sum-stat" style="grid-template-columns:1fr 1fr">'+c('সঞ্চয় জমা',r.sav,'var(--grn)')+c('লাভ আদায়',r.prof,'var(--grn)')+c('আসল আদায়',r.prin,'var(--grn)')+c('জরিমানা',r.fine,'var(--grn)')+c('ঋণ দেওয়া',r.loan,'var(--red)')+c('সঞ্চয় ফেরত',r.wd,'var(--red)')+c('খরচ',r.ex,'var(--red)')+c('মাসের জের (আদায় − প্রদান)',net,net>=0?'var(--grn)':'var(--red)')+'</div>';
+var T=T0(),totS=0,totL=0,cash=0;DB.members.forEach(function(x){totS+=mSav(x.id).bal});DB.loans.forEach(function(l){totL+=lStat(l,T).prin;cash-=l.amount;(l.pays||[]).forEach(function(p){if(p.via!=='saving')cash+=(p.principal||0)+(p.profit||0)+(p.fine||0)})});DB.savings.forEach(function(t){if(t.type==='deposit')cash+=t.amt;else if(t.type==='withdraw')cash-=t.amt});DB.expenses.forEach(function(e){cash-=e.amt});
+h+='<div class="sum-stat" style="grid-template-columns:1fr 1fr">'+c('মোট সঞ্চয় (এখন)',totS,'var(--grn)')+c('ঋণ বাকি আসল (এখন)',totL,'var(--red)')+c('হিসাব অনুযায়ী নগদ',cash)+'</div><p class="st-note">"হিসাব অনুযায়ী নগদ" অ্যাপে লেখা সব জমা, ঋণ, ফেরত ও খরচ থেকে হিসাব করা। সমিতির শুরুর পুঁজি এতে ধরা নেই।</p>';
+var od=[];DB.members.forEach(function(x){var s=sStat(x,T);if(s&&s.arr>0)od.push({m:x,w:'সঞ্চয়',a:s.arr,d:s.days})});DB.loans.forEach(function(l){var q=lStat(l,T),x=mem(l.mid);if(x&&q.open&&q.arr>0)od.push({m:x,w:'ঋণের লাভ',a:q.arr,d:q.days})});od.sort(function(a,b){return b.d-a.d});
+h+='<h4 class="sec-h">বাকির তালিকা (বেশি দিনের আগে)</h4>';
+if(!od.length)h+='<p class="empty-msg">কারও কিছু বাকি নেই</p>';else{h+='<table><thead><tr><th>সদস্য</th><th>কিসের</th><th>বাকি</th><th>কত দিন</th></tr></thead><tbody>';od.forEach(function(o){h+='<tr><td><span class="t-name" onclick="oMD('+o.m.id+')">'+esc(o.m.name)+'</span></td><td>'+o.w+'</td><td class="t-num" style="color:var(--red)">'+mon(o.a)+'</td><td>'+toBn(o.d)+' দিন</td></tr>'});h+='</tbody></table>'}
+gid('sumB').innerHTML=h}
+
+/* ═══════════════ অ্যাপ লক (পিন) ═══════════════ */
+function pinCard(){if(lsGet('smtPin'))return '<p class="st-note">পিন চালু আছে। অ্যাপ খুললে বা কিছুক্ষণ বন্ধ থাকার পর ফিরলে পিন চাইবে। পিন ভুলে গেলে লগআউট করে আবার ঢুকলে পিন মুছে যায়।</p><button type="button" class="st-btn dg" onclick="pinOff()">পিন বন্ধ করুন</button>';
+return '<p class="st-note">ফোন অন্যের হাতে গেলে হিসাব বাঁচাতে ৪ থেকে ৬ সংখ্যার পিন দিন। শুধু এই ডিভাইসে কাজ করবে।</p><div class="fg"><label for="pnA">নতুন পিন</label><input id="pnA" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></div><div class="fg"><label for="pnB">আবার লিখুন</label><input id="pnB" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></div><div class="st-msg" id="pnM" role="alert"></div><button type="button" class="st-btn" onclick="pinSet()">পিন চালু করুন</button>'}
+function pinSet(){var a=toEn(val('pnA')),b=toEn(val('pnB')),m=gid('pnM');
+if(!/^[0-9]{4,6}$/.test(a)){m.textContent='পিন ৪ থেকে ৬টি সংখ্যার হতে হবে';m.className='st-msg err';return}
+if(a!==b){m.textContent='দুইবার একই পিন লিখুন';m.className='st-msg err';return}
+var salt=newSalt();pwHash(a,salt).then(function(h){lsSet('smtPin',JSON.stringify({s:salt,h:h}));initSettings();toast('ok','পিন চালু হয়েছে')})}
+function pinOff(){if(!confirm('পিন বন্ধ করবেন?'))return;lsDel('smtPin');initSettings();toast('ok','পিন বন্ধ হয়েছে')}
+function pinGate(cb){var v=null;try{v=JSON.parse(lsGet('smtPin')||'null')}catch(e){}if(!v){if(cb)cb();return}showPin(v,cb)}
+function showPin(v,cb){var o=gid('pinOv');if(!o){o=document.createElement('div');o.id='pinOv';document.body.appendChild(o)}
+o.innerHTML='<form class="pin-box" onsubmit="return false"><h2 class="lg-t">'+esc(getSet().shop)+'</h2><p class="lg-s">পিন দিন</p><input id="pinI" type="password" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="পিন"><div class="lg-err" id="pinE" role="alert"></div><button class="lg-btn" type="submit" id="pinB">খুলুন</button></form>';
+o.style.display='flex';
+var go=function(){pwHash(toEn(val('pinI')),v.s).then(function(h){if(h===v.h){o.style.display='none';if(cb)cb()}else{gid('pinE').textContent='পিন সঠিক নয়';gid('pinI').value=''}})};
+gid('pinB').onclick=go;gid('pinI').onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();go()}};setTimeout(function(){var f=gid('pinI');if(f)f.focus()},50)}
+var hiddenAt=0;
+document.addEventListener('visibilitychange',function(){if(document.hidden){hiddenAt=Date.now();return}
+if(lsGet('smtPin')&&lsGet('smtTok')&&hiddenAt&&Date.now()-hiddenAt>60000)pinGate(null)});
+window.addEventListener('online',imgFlushAll);
+setInterval(updNd,60000);
+
+/* ═══════════════ প্রাথমিক রেন্ডার ═══════════════ */
+applySettings();bootApp();
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){
+var swHad=!!navigator.serviceWorker.controller,swRl=false;
+window.addEventListener('load',function(){
+navigator.serviceWorker.register('sw.js').then(function(reg){
+var chk=function(){try{reg.update()}catch(e){}};
+setInterval(chk,30*60*1000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)chk()});
+}).catch(function(){})});
+/* নতুন সংস্করণ এলে: লেখার মাঝখানে না থাকলে নিজে রিফ্রেশ হয়, নইলে কাজ শেষ হওয়া পর্যন্ত অপেক্ষা করে */
+navigator.serviceWorker.addEventListener('controllerchange',function(){
+if(!swHad){swHad=true;return}
+var go=function(){if(swRl)return true;var a=document.activeElement;
+if(DB._dirty||document.querySelector('.modal-ov.show')||(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)))return false;
+swRl=true;location.reload();return true};
+if(!go()){toast('info','অ্যাপের নতুন সংস্করণ এসেছে। কাজ শেষ হলে নিজে নতুন হবে');var t=setInterval(function(){if(go())clearInterval(t)},15000)}})}
+
+</script>
+</body>
+</html>
