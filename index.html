@@ -228,6 +228,7 @@ body{background:linear-gradient(180deg,#9B6AD6 0%,#7B45B8 55%,#5E3294 100%) fixe
 #pgMembers td:nth-child(1) .al-t{display:block;margin-top:2px;line-height:1.35;font-size:11px}
 #pgMembers .av-btns{flex-direction:column;gap:4px}
 #pgMembers .av-btns .mbtn{padding:5px 2px;font-size:11px;width:100%;white-space:nowrap}
+.mh-act{margin-left:auto;margin-right:8px;display:flex;gap:6px;flex-wrap:nowrap}.mh-act button{border:0;background:var(--tm,#666);color:#fff;font:inherit;font-size:12px;padding:5px 9px;border-radius:8px;white-space:nowrap;cursor:pointer}.mh-act .ex{background:var(--org,#e67e22)}
 </style>
 
 </head>
@@ -832,7 +833,7 @@ if(mid){var m=mem(mid);m.name=n;m.phone=p;m.address=val('nmA').trim();m.nid=val(
 else{var id=nid('m');DB.members.push({id:id,name:n,phone:p,address:val('nmA').trim(),nid:val('nmI').trim(),joinDate:j,saveAmt:nv('nmS'),saveDay:sd,saveType:ty,saveWday:wd,status:'active',ph:{}});saveDB();closeM(host);rf();toast('ok','সদস্য যোগ হয়েছে। এবার ছবি তুলুন');oMD(id)}}
 function reSub(id){if(window.SUBV==='dt')oDT(id);else oMD(id)}
 function oMD(id){var m=mem(id);if(!m)return;window.SUBV='md';window.SUBL='';window.SUBX='';var sv=mSav(id),lb=mLoanBal(id),wt=rd(sv.wd+sv.adj),cur=rd(sv.dep-wt-lb),np=normPhone(m.phone);
-var h='<div class="m-head"><h3>'+esc(m.name)+(m.status==='active'?'':' <span class="s-pill chip-y">বাতিল</span>')+'</h3>'+xBtn('subModal')+'</div><div class="m-body">';
+var h='<div class="m-head"><h3>'+esc(m.name)+(m.status==='active'?'':' <span class="s-pill chip-y">বাতিল</span>')+'</h3><span class="mh-act"><button type="button" onclick="openNM('+id+',\'sub2Modal\')"><i class="fas fa-pen"></i> সম্পাদনা</button>'+(m.status==='active'?'<button type="button" class="ex" onclick="openExit('+id+')"><i class="fas fa-door-open"></i> সদস্যপদ বাতিল</button>':'')+'</span>'+xBtn('subModal')+'</div><div class="m-body">';
 h+='<div class="cust-info-bar"><span>মোবাইল: <strong>'+esc(m.phone)+'</strong></span></div>';
 if(np)h+='<div class="action-btns" style="margin-bottom:12px"><a class="mbtn mbtn-gr" href="tel:+'+np+'" style="text-decoration:none;display:inline-block"><i class="fas fa-phone"></i> ফোন করুন</a> <a class="mbtn mbtn-b" href="sms:+'+np+'" style="text-decoration:none;display:inline-block"><i class="fas fa-comment-sms"></i> এসএমএস</a></div>';
 h+='<div class="sum-stat sm4" style="grid-template-columns:repeat(4,1fr)"><div class="sum-stat-item" style="cursor:pointer" onclick="oSL('+id+')"><div class="ss-val" style="color:var(--grn)">'+mon(sv.dep)+'</div><div class="ss-lbl">মোট সঞ্চয় ›</div></div><div class="sum-stat-item" style="cursor:pointer" onclick="oSR('+id+')"><div class="ss-val" style="color:var(--pur)">'+mon(wt)+'</div><div class="ss-lbl">মোট সঞ্চয় ফেরত ›</div></div><div class="sum-stat-item" style="cursor:pointer" onclick="lnOpen('+id+')"><div class="ss-val" style="color:'+(lb>0?'var(--red)':'var(--tm)')+'">'+mon(lb)+'</div><div class="ss-lbl">বর্তমান লোন ›</div></div><div class="sum-stat-item"><div class="ss-val" style="color:'+(cur<0?'var(--red)':'var(--grn)')+'">'+mon(cur)+'</div><div class="ss-lbl">বর্তমান সঞ্চয়</div></div></div>';
@@ -842,7 +843,7 @@ var h='<div class="m-head"><button type="button" class="m-back" onclick="oMD('+i
 h+='<div class="ph-row">'+phSlotHtml(m,'p')+phSlotHtml(m,'nf')+phSlotHtml(m,'nb')+'</div>';
 h+='<div class="cust-info-bar"><span>মোবাইল: <strong>'+esc(m.phone)+'</strong></span><span>ঠিকানা: <strong>'+esc(m.address)+'</strong></span><span>এনআইডি: <strong>'+esc(m.nid)+'</strong></span><span>ভর্তি: <strong>'+fD(m.joinDate)+'</strong></span>'+(m.saveAmt?'<span>সঞ্চয়: <strong>'+sLbl(m)+' '+mon(m.saveAmt)+', '+sWhen(m)+'</strong></span>':'')+'</div>';
 var ls=mLoans(id);
-if(ls.length){h+='<h4 class="sec-h">লোন ও কাগজপত্রের ছবি</h4><table><thead><tr><th>তারিখ</th><th>লোন</th><th></th></tr></thead><tbody>';ls.forEach(function(l){h+='<tr><td>'+fD(l.date)+'</td><td class="t-num">'+mon(l.amount)+'</td><td>'+(lStat(l,T0()).open?'<button class="mbtn mbtn-b" onclick="oLD('+l.id+')">কাগজপত্র / বিস্তারিত</button>':'<button class="mbtn" style="background:var(--grn);color:#fff" onclick="oLD('+l.id+')">পরিশোধ ✔</button>')+'</td></tr>'});h+='</tbody></table>'}
+if(ls.length){h+='<h4 class="sec-h">লোন</h4><table><thead><tr><th>তারিখ</th><th>লোন</th><th></th></tr></thead><tbody>';ls.forEach(function(l){h+='<tr><td>'+fD(l.date)+'</td><td class="t-num">'+mon(l.amount)+'</td><td>'+(lStat(l,T0()).open?'<button class="mbtn mbtn-b" onclick="oLD('+l.id+')">বিস্তারিত</button>':'<button class="mbtn" style="background:var(--grn);color:#fff" onclick="oLD('+l.id+')">পরিশোধ ✔</button>')+'</td></tr>'});h+='</tbody></table>'}
 h+='<div class="action-btns" style="margin-top:14px"><button style="background:var(--tm)" onclick="passbook('+id+')"><i class="fas fa-book"></i> পাসবুক</button><button style="background:var(--tm)" onclick="openNM('+id+',\'sub2Modal\')"><i class="fas fa-pen"></i> সম্পাদনা</button>'+(m.status==='active'?'<button style="background:var(--org)" onclick="openExit('+id+')"><i class="fas fa-door-open"></i> সদস্যপদ বাতিল</button>':'<button style="background:var(--grn)" onclick="reactMem('+id+')"><i class="fas fa-rotate-left"></i> আবার সক্রিয় করুন</button>')+'<button style="background:var(--red)" onclick="delMem('+id+')"><i class="fas fa-trash"></i> চিরতরে মুছুন</button></div>';
 h+='</div><div class="m-foot"><button class="mbtn mbtn-g" onclick="closeM(\'subModal\')">বন্ধ</button></div>';setM('subModal',h);openM('subModal');phFill(m)}
 function srt(a,b){return a.date<b.date?-1:a.date>b.date?1:a.id-b.id}
@@ -879,7 +880,7 @@ else h+='<div class="calc-row" style="margin-top:10px"><span>লোন পুর
 h+='<div class="sum-stat" style="grid-template-columns:1fr 1fr;margin-top:12px"><div class="sum-stat-item"><div class="ss-val" style="color:var(--grn)">'+mon(q.paid.prof)+'</div><div class="ss-lbl">মোট লাভ আসলো</div></div><div class="sum-stat-item"><div class="ss-val" style="color:var(--blu)">'+mon(rd(q.paid.prin-q.paid.wvP))+'</div><div class="ss-lbl">মোট লোন পরিশোধ</div></div></div>';
 if(q.paid.wv>0)h+='<div class="calc-row"><span>মোট মওকুফ</span><span class="t-num" style="color:var(--org)">'+mon(q.paid.wv)+'</span></div>';
 if(k)h+='<button type="button" class="mbtn mbtn-gr" style="width:100%;margin-top:14px;padding:12px" onclick="sLG()"><i class="fas fa-save"></i> সংরক্ষণ করুন</button>';
-h+='</div><div class="m-foot"><button class="mbtn mbtn-g" onclick="'+back+'">পেছনে</button><button class="mbtn mbtn-b" onclick="oLD('+l.id+')">কাগজপত্রের ছবি</button></div>';
+h+='</div><div class="m-foot"><button class="mbtn mbtn-g" onclick="'+back+'">পেছনে</button></div>';
 setM('sub2Modal',h);openM('sub2Modal')}
 function lgWv(){var e=gid('lgW');if(e)e.style.display=e.style.display==='none'?'':'none'}
 function lgTot(){var l=loanOf(LG.lid);if(!l)return;var q=lStat(l,T0()),r=nv('lgR'),wp=nv('lgWp'),p=nv('lgP'),wf=nv('lgWf'),pv=gid('lgPv'),cu=gid('lgCur');var after=Math.max(0,rd(q.prin-r-wp));if(cu)cu.textContent=mon(after);if(!pv)return;
@@ -952,7 +953,7 @@ setM(host,'<div class="m-head"><h3>নতুন লোন</h3>'+xBtn(host)+'</di
 window.NLM=mid||0;if(!mid)mpInit(function(m){return m.status==='active'},function(id){NLM=id})}
 function sNL(host){var id=NLM,a=nv('nlA');if(!id){toast('warn','সদস্য বেছে নিন');return}if(a<=0){toast('warn','লোনের পরিমাণ দিন');return}
 var lid=nid('l');DB.loans.push({id:lid,mid:id,date:val('nlD')||iso(),amount:a,rate:nv('nlR'),months:Math.round(nv('nlM')),purpose:val('nlU').trim(),gName:val('nlGN').trim(),gPhone:val('nlGP').trim(),pays:[],docs:0});
-saveDB();closeM(host);if(gid('subModal').classList.contains('show'))closeM('subModal');rf();toast('ok','লোন লেখা হয়েছে। এবার কাগজপত্রের ছবি তুলুন');oLD(lid)}
+saveDB();closeM(host);if(gid('subModal').classList.contains('show'))closeM('subModal');rf();toast('ok','লোন লেখা হয়েছে')}
 function oLD(lid){var l=loanOf(lid);if(!l)return;window.SUBX='ld';var m=mem(l.mid)||{name:'?'},T=T0(),q=lStat(l,T);
 var h='<div class="m-head"><button type="button" class="m-back" onclick="reSub('+l.mid+')">←</button><h3>লোন: '+esc(m.name)+'</h3></div><div class="m-body">';
 h+='<div class="calc-row"><span>লোন ('+fD(l.date)+')</span><span class="t-num">'+mon(l.amount)+'</span></div><div class="calc-row"><span>মাসিক লাভের হার</span><span class="t-num">'+toBn(l.rate||0)+'%</span></div><div class="calc-row"><span>আসল শোধ হয়েছে</span><span class="t-num" style="color:var(--grn)">'+mon(rd(q.paid.prin-q.paid.wvP))+'</span></div>'+(q.paid.wv>0?'<div class="calc-row"><span>মওকুফ</span><span class="t-num" style="color:var(--org)">'+mon(q.paid.wv)+'</span></div>':'')+'<div class="calc-row"><span>লাভ জমা হয়েছে</span><span class="t-num" style="color:var(--grn)">'+mon(q.paid.prof)+'</span></div>'+(q.paid.fine?'<div class="calc-row"><span>জরিমানা জমা</span><span class="t-num">'+mon(q.paid.fine)+'</span></div>':'')+'<div class="calc-row due"><span>বাকি আসল</span><span>'+mon(q.prin)+'</span></div>';
@@ -961,8 +962,8 @@ if(l.purpose)h+='<div class="calc-row"><span>উদ্দেশ্য</span><spa
 if(l.gName||l.gPhone)h+='<div class="calc-row"><span>জামিনদার</span><span>'+esc(l.gName)+' '+esc(l.gPhone)+'</span></div>';
 if(+l.months>0)h+='<div class="calc-row"><span>মেয়াদ</span><span>'+toBn(l.months)+' মাস</span></div>';
 if(q.open)h+='<div class="action-btns" style="margin-top:12px"><button style="background:var(--blu)" onclick="openCol('+l.mid+',\'sub2Modal\','+l.id+')"><i class="fas fa-hand-holding-dollar"></i> কিস্তি আদায়</button></div>';
-h+='<h4 class="sec-h">কাগজপত্রের ছবি</h4><div class="ph-row" id="dcRow">';for(var i=1;i<=(l.docs||0);i++){if(l.dx&&l.dx[i])continue;h+='<div class="ph-slot"><button type="button" class="ph-box has" id="dc_'+i+'" onclick="docView('+l.id+','+i+')"><span class="ph-ld">লোড হচ্ছে</span></button><span class="ph-l">কাগজ '+toBn(i)+'</span></div>'}
-h+='<div class="ph-slot"><button type="button" class="ph-box" onclick="docShoot('+l.id+')"><i class="fas fa-camera"></i></button><span class="ph-l">ছবি যোগ করুন</span></div></div>';
+
+
 if((l.pays||[]).length){h+='<h4 class="sec-h">জমার তালিকা</h4><table><thead><tr><th>তারিখ</th><th>লাভ</th><th>আসল</th><th>জরিমানা</th><th></th></tr></thead><tbody>';l.pays.slice().reverse().forEach(function(p){h+='<tr><td>'+fD(p.date)+(p.via==='saving'?'<div class="al-t">সঞ্চয় থেকে</div>':p.via==='waive'?'<div class="al-t" style="color:var(--org)">মওকুফ</div>':'')+'</td><td class="t-num">'+mon(p.profit||0)+'</td><td class="t-num">'+mon(p.principal||0)+'</td><td class="t-num">'+mon(p.fine||0)+'</td><td><button class="ib del" onclick="delPay('+l.id+','+p.id+')"><i class="fas fa-trash"></i></button></td></tr>'});h+='</tbody></table>'}
 h+='<div class="action-btns" style="margin-top:14px"><button style="background:var(--red)" onclick="delLoan('+l.id+')"><i class="fas fa-trash"></i> লোন মুছুন</button></div></div>';
 setM('subModal',h);openM('subModal');docFill(l)}
