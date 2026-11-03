@@ -229,6 +229,38 @@ tr.lg-in td{padding:6px 4px}tr.lg-in input{box-sizing:border-box}
 #pgMembers .av-btns{flex-direction:column;gap:4px}
 #pgMembers .av-btns .mbtn{padding:5px 2px;font-size:11px;width:100%;white-space:nowrap}
 .mh-act{margin-left:auto;margin-right:8px;display:flex;gap:6px;flex-wrap:nowrap}.mh-act button{border:0;background:var(--tm,#666);color:#fff;font:inherit;font-size:12px;padding:5px 9px;border-radius:8px;white-space:nowrap;cursor:pointer}.mh-act .ex{background:var(--org,#e67e22)}
+
+/* v15 — 3D light style + bottom bar */
+body{background:linear-gradient(180deg,#eef2fb,#f7f9fd) fixed!important}
+.topbar{background:linear-gradient(180deg,#dfe7fa,#f1f5fc)!important;color:#12301f!important;box-shadow:0 2px 6px rgba(0,0,0,.08)!important}
+.topbar *{color:#12301f!important}
+.dx-acts{gap:18px 16px!important;margin-bottom:22px!important}
+.dx-acts .dx-btn{position:relative;min-height:56px!important;padding:0 10px!important;flex-direction:row!important;gap:10px!important;font-size:16px!important;border:0!important;border-radius:16px!important;color:#fff!important;
+ background:linear-gradient(180deg,#4a78d8 0%,#2a52b0 48%,#1c3c8c 52%,#25489f 100%)!important;
+ box-shadow:0 0 0 2.5px #d9b87a,0 0 0 4px #8d6b32,0 7px 0 4px #6b4f22,0 12px 14px 2px rgba(0,0,0,.35),inset 0 3px 3px rgba(255,255,255,.55),inset 0 -4px 6px rgba(0,0,30,.35)!important;margin-bottom:8px}
+.dx-acts .dx-btn:after{content:"";position:absolute;left:8px;right:8px;top:4px;height:42%;border-radius:12px 12px 40px 40px;background:linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,0));pointer-events:none}
+.dx-acts .dx-btn i{font-size:22px!important}
+.dx-acts .dx-btn:nth-child(5){grid-column:1/-1!important;color:#14301F!important;background:linear-gradient(180deg,#e0f7ea 0%,#a9dfc2 48%,#8fd0b0 52%,#a8dcc2 100%)!important}
+.dx-acts .dx-btn:active{transform:translateY(4px)}
+.dx-tags{gap:18px 16px!important;margin-bottom:24px!important}
+.dx-tag{position:relative;padding:12px 14px!important;min-height:96px!important;border:0!important;border-radius:18px!important;color:#14301F!important;
+ background:linear-gradient(160deg,#e3f8ee 0%,#b3e2cb 55%,#98d5b8 100%)!important;
+ box-shadow:0 0 0 2.5px #d9b87a,0 0 0 4px #8d6b32,0 7px 0 4px #6b4f22,0 12px 14px 2px rgba(0,0,0,.3),inset 0 3px 3px rgba(255,255,255,.8),inset 0 -4px 6px rgba(0,80,40,.2)!important;margin-bottom:8px}
+.dx-tag:after{content:"";position:absolute;left:8px;right:8px;top:4px;height:38%;border-radius:14px 14px 40px 40px;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
+.dx-tag:active{transform:translateY(4px)}
+.dx-tag-t,.dx-tag-v,.dx-tag-s{color:#14301F!important;opacity:1!important;margin-top:0!important}
+.dx-tag-t{font-size:14px!important}.dx-tag-v{font-size:25px!important}.dx-tag-s{font-size:12px!important;opacity:.75!important}
+.dx-tag-ic{color:#a9803f!important;opacity:.85!important;font-size:34px!important;right:14px!important}
+.dx-tags .dx-tag:nth-child(5){grid-column:1/-1!important;min-height:80px!important}
+#btmNav{display:none}
+@media(max-width:900px){
+ #btmNav{display:grid;position:fixed;left:12px;right:12px;bottom:10px;z-index:90;grid-template-columns:repeat(4,1fr);padding:3px 6px;border-radius:16px;background:linear-gradient(180deg,#2e5bc4,#1a409c);box-shadow:0 0 0 2.5px #d9b87a,0 0 0 4px #8d6b32,0 6px 0 4px #6b4f22,0 12px 14px 2px rgba(0,0,0,.35),inset 0 3px 3px rgba(255,255,255,.45)}
+ #btmNav button{border:0;background:none;color:#d5e3ff;font:inherit;font-size:12px;line-height:1.15;font-weight:600;padding:2px 0;border-radius:12px;cursor:pointer}
+ #btmNav button i{display:block;font-size:15px;line-height:1;margin-bottom:0}
+ #btmNav button.on{background:linear-gradient(180deg,#5a86ea,#3366d4);color:#fff;box-shadow:inset 0 2px 3px rgba(255,255,255,.6),0 3px 5px rgba(0,0,0,.35)}
+ .main,#mainContent,.content{padding-bottom:80px}
+ body{padding-bottom:80px}
+}
 </style>
 
 </head>
@@ -1052,6 +1084,13 @@ document.addEventListener('visibilitychange',function(){if(document.hidden){hidd
 if(lsGet('smtPin')&&lsGet('smtTok')&&hiddenAt&&Date.now()-hiddenAt>60000)pinGate(null)});
 window.addEventListener('online',imgFlushAll);
 setInterval(updNd,60000);
+
+(function(){var d=document.createElement('div');d.id='btmNav';
+d.innerHTML='<button type="button" data-p="dashboard"><i class="fas fa-house"></i>হোম</button><button type="button" data-p="members"><i class="fas fa-users"></i>সদস্য</button><button type="button" data-p="summary"><i class="fas fa-chart-simple"></i>হিসাব</button><button type="button" data-p="settings"><i class="fas fa-gear"></i>সেটিংস</button>';
+document.body.appendChild(d);
+window.bnAct=function(p){try{Array.prototype.forEach.call(d.querySelectorAll('button'),function(b){b.classList.toggle('on',b.getAttribute('data-p')===p)})}catch(e){}};
+try{d.addEventListener('click',function(e){var b=e.target.closest('button');if(b)showPage(b.getAttribute('data-p'))})}catch(e){}
+var o=showPage;showPage=function(p){o(p);bnAct(p)};bnAct('dashboard')})();
 
 /* ═══════════════ প্রাথমিক রেন্ডার ═══════════════ */
 applySettings();bootApp();
